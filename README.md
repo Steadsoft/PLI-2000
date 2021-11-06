@@ -30,4 +30,5 @@ A number of test source files were used for validating and testing the compiler 
 
 The code was moved to Visual Studio after a few years (it was originally built using Borland tools on DOS) and is now a Visual Studio solution and project. Though somewhat dated now and not a language that's in use very much, this is a real working compiler that goes all the way from raw source code to Microsoft COFF DLL files. There was no source code control in place at the time I developed this either.
 
+You are welcome to contact me or post issues here if you have questions or find the project useful in any way.
 
