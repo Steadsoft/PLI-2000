@@ -4,7 +4,7 @@ This project began as an academic exercise while learning the 'C' language durin
 
 As the project progressed and my knowledge of C solidified, I began to develop a deeper interest into compiler theory including recursive descent parsing, again because I knew PL/I very well from my professional work PL/I presented no problems as the langauge to use for these experiments.
 
-Eventually the project grew and I became more confident that I was understanding the subject and that I could perhapse implement a true compiler, one that could generate 32bit DLLs in COFF format that could be linked with the MS linker.
+Eventually the project grew and I became more confident that I was understanding the subject and that I could perhapse implement a true compiler, one that could generate 32bit DLLs in COFF format that could be linked with the MS linker. There was an earlier version too that ran on DOS and built DOS object files for the 286.
 
 Here are some of the resources I used as I worked on this:
 
