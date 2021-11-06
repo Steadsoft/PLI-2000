@@ -1,0 +1,15 @@
+qualify:
+
+proc;
+
+dcl 1 structure,
+      2 sub_struc,
+	3 user_name	char(16);
+
+structure.sub_struc.user_name = 'aaa';
+sub_struc.user_name           = 'aaa';
+user_name		      = 'aaa';
+structure.user_nam           = 'aaa';
+
+end;
+

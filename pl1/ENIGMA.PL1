@@ -1,0 +1,207 @@
+enigma:
+
+     procedure;
+
+     dcl e$end_of_file   bin(15) ext;
+     dcl newpath         char(256) var;
+     dcl I               bin(15);
+     dcl s               bin(15);
+     dcl rec             char (1024);
+     dcl reclen          bin(15);
+     dcl newrec          char (1024);
+     dcl mask (1024)     defined (rec) bit(8);
+     dcl newmask (1024)  defined (newrec) bit(8);
+     dcl key             char(32) var;
+     dcl newkey          char(32) var;
+     dcl keylen          bin(15);
+     dcl code (1:32)    bit(8) based(addr(key));
+     dcl exorkey         char (32);
+     dcl exsetup  (32)   char (1) defined (exorkey);       
+     dcl exormask (32)   bit(8) based(addr(exorkey));
+     
+     %replace INPUT_TYPE	by 1;
+     %replace OUTPUT_TYPE       by 2;
+     
+
+     dcl s$encipher_password   entry (char(*) var,
+                                      char(*) var);
+
+     % include 'voscalls';
+     /*% include 'system_io_constants';*/
+
+     dcl K          bin(15);
+     dcl J               bin(15);
+
+     dcl s$parse_command      entry (char(*) var,bin(15),
+                                     char(*) var,char(*) var,
+                                     char(*) var,char(32) var,
+                                     char(*) var);
+
+     dcl path            char(256) var;
+     dcl file            char(32) var;
+     dcl otport          bin(15);
+     dcl inport          bin(15);
+     
+     call s$parse_command     ('enigma by Ridall/Gleaves Inc',s,
+                               'file:string,req',file,
+                               'key:string,req,length(32)',key,
+                               'end');
+
+     call s$expand_path ((file),
+                         '',
+                         path,
+                         s);
+
+     if s ^= 0 then
+        stop;
+
+     keylen = length(key);
+
+     call s$encipher_password (key,
+                               newkey);
+
+     key = newkey;
+
+     K = 0;
+
+     call s$seq_open     (path,
+                          INPUT_TYPE,
+                          inport,
+                          s);
+
+     if s ^= 0 then
+        do;
+        call s$error (s,'enigma','request aborted');
+        stop;
+        end;
+
+     newpath = path||'.enc';
+
+     call s$seq_open     (newpath,
+                          OUTPUT_TYPE,
+                          otport,
+                          s);
+
+     if s ^= 0 then
+        do;
+        call s$error (s,'enigma','request aborted');
+        stop;
+        end;
+
+     call read_rec (s);
+
+     do while (s = 0);
+        
+        call build_newrec;
+
+        call write_newrec;
+
+        call read_rec (s);
+
+     end;
+
+     if s ^= e$end_of_file then
+        do;
+        call s$error (s,'enigma','request aborted');
+        stop;
+        end;
+
+
+     call s$close (otport,s);
+
+     if s ^= 0 then
+        do;
+        call s$error (s,'enigma','request aborted');
+        stop;
+        end;
+
+     call s$close (inport,s);
+
+     if s ^= 0 then
+        do;
+        call s$error (s,'enigma','request aborted');
+        stop;
+        end;
+
+     call s$detach_port (otport,s);
+
+     if s ^= 0 then
+        do;
+        call s$error (s,'enigma','request aborted');
+        stop;
+        end;
+
+     call s$detach_port (inport,s);
+
+     if s ^= 0 then
+        do;
+        call s$error (s,'enigma','request aborted');
+        stop;
+        end;
+
+     call s$delete_file (path,s);
+
+     if s ^= 0 then
+        do;
+        call s$error (s,'enigma','request aborted');
+        stop;
+        end;
+
+     call s$rename (newpath,file,s);
+
+     if s ^= 0 then
+        do;
+        call s$error (s,'enigma','request aborted');
+        stop;
+        end;
+
+    
+  
+read_rec:
+
+     proc(st);
+     
+     dcl st         bin(15);
+
+     call s$seq_read (inport,
+                      1024,
+                      reclen,
+                      rec,
+                      st);
+     end;
+
+build_newrec:
+
+     proc;
+
+     do I = 1 to reclen;
+
+        K = K + 1;
+
+        if K > keylen then
+           do;
+           call s$encipher_password (key,
+                                     newkey);
+           key = newkey;
+           K = 1;
+           end;
+
+        newmask(I) = bool(mask(I),code(K),'0110'b);
+
+     end;
+
+end;
+
+write_newrec:
+
+     proc;
+
+     call s$seq_write (otport,
+                       reclen,
+                       newrec,
+                       s);
+
+end;
+
+end;
+          

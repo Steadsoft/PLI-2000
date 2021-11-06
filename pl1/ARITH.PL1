@@ -1,0 +1,11 @@
+arith:
+
+proc options(main);
+
+dcl (a,b,c,d)      bin(15);
+
+a = b + c - d;
+
+end;
+
+

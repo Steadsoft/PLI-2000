@@ -1,0 +1,50 @@
+/***************************************************************************/
+/* Verify correect parsing of the INITIAL option (ANSI-1987)               */
+/***************************************************************************/
+
+inity:
+
+proc;
+
+/* the following are array type initialisations */
+					
+dcl a(10)   bin(15) initial (12,*,(3,5),(2)123);     
+
+
+dcl b(10)   bin(15) initial ( (*) -123) external;
+dcl c(10)   bin(15) initial ( (*) +123);
+dcl d(10)   bin(15) initial ( (*) ^123);
+dcl e(10)   bin(15) initial ( (*)  123); 
+dcl f(10)   bin(15) initial ( (*) (a*b));       
+dcl g(10)   bin(15) initial ( (*) (+'hello') );
+dcl h(10)   bin(15) initial ( (*) (-101) );
+
+dcl m bin(15);
+
+put skip (m) list ('Hello');
+
+
+
+/* these assignments suppress warnings about unreferenced vars */
+
+/* a(1) = 0;                                                                       */
+/* b(1) = 0;
+c(1) = 0;
+d(1) = 0;
+e(1) = 0;
+f(1) = 0;
+g(1) = 0;
+h(1) = 0;
+   */
+/*
+if a(1) > a(2) then
+   ;
+
+if a(1) >= a(2) then
+   ;
+
+if a(1) ^>= a(2) then
+   ;
+  */
+end;
+

@@ -1,0 +1,12 @@
+ex:
+
+   proc;
+
+   dcl (a,b,c,d)       bin(15);
+
+   a = b + c;
+
+   a = b + c + d;
+
+   end;
+

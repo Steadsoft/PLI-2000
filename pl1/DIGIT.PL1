@@ -1,0 +1,14 @@
+digit:
+
+     procedure (s) returns (bit(1));
+
+     %replace          DIGIT     by '0123456789';
+
+     dcl s               char(1) ;
+
+     return (verify(s,DIGIT) = 0);
+
+     end; 
+
+     
+

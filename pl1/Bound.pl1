@@ -1,0 +1,16 @@
+/******************************************************/
+/* Test array bounds checking in codegen              */
+/******************************************************/
+
+
+bound:
+
+   proc options (main);
+
+   dcl array(10)       bin (15);
+
+   array(1) = 0;
+
+   array(11) = 0;
+
+   end;

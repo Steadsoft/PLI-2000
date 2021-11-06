@@ -1,0 +1,174 @@
+doscalls:
+
+    procedure options (main);
+
+/****************************************************************************/
+/*                           COPYRIGHT NOTICE                               */
+/****************************************************************************/
+/* Vulkan CONFIDENTIAL INFORMATION:                           Category:  1  */
+/* COPYRIGHT (c) 1990 Vulkan Technologies Ltd.                              */
+/*                                                                          */
+/* This data file contains confidential and proprietary information of      */
+/* Vulkan Technologies Ltd, and any reproduction, disclosure, or other use  */
+/* in whole or in part, is hereby expressly prohibited.                     */
+/*                                                                          */
+/* This restriction applies unless, prior written agreement or prior        */
+/* written permission has been given by Vulkan Technologies Ltd.            */
+/*                                                                          */
+/* Unlawful use of this material shall render the using party liable to     */
+/* prosecution.                                                             */
+/*                                                                          */
+/****************************************************************************/
+
+/****************************************************************************/
+/*                          Functional Description                          */
+/****************************************************************************/
+/* This program demonstrates some of the common DOS services calls.         */
+/*                                                                          */
+/*                                                                          */
+/*                                                                          */
+/*                                                                          */
+/*                                                                          */
+/*                                                                          */
+/*                                                                          */
+/*                                                                          */
+/*                                                                          */
+/*                                                                          */
+/****************************************************************************/
+
+/****************************************************************************/
+/*                   R E P L A C E     S T A T E M E N T S                  */
+/****************************************************************************/
+
+/****************************************************************************/
+/*                      I N C L U D E     F I L E S                         */
+/****************************************************************************/
+
+   % include 'dos';
+
+/****************************************************************************/
+/*                        D O S    E N T R I E S                            */
+/****************************************************************************/
+
+/****************************************************************************/
+/*                       U S E R    E N T R I E S                           */
+/****************************************************************************/
+
+/****************************************************************************/
+/*                    E X T E R N A L    V A R I A B L E S                  */
+/****************************************************************************/
+
+/****************************************************************************/
+/*                      S T A T I C     V A R I A B L E S                   */
+/****************************************************************************/
+
+   dcl os_maj              bin(15) static;
+   dcl os_min              bin(15) static;
+   dcl oem_ser             bin(15);
+
+   dcl 1 mouse_stuff       static,
+         2 button_status   bin(15),
+         2 x_coord         bin(15),
+         2 y_coord         bin(15);
+
+/****************************************************************************/
+/*                     A U T O M A T I C    V A R I A B L E S               */
+/****************************************************************************/
+
+    dcl disk                                    bin(15);
+    dcl page                                    bin(15);
+    dcl row                                     bin(15);
+    dcl col                                     bin(15);
+    dcl status                                  bin(15);
+    dcl mode                                    bin(15);
+    dcl core_available                          bin(15);
+
+/****************************************************************************/
+/*           S T A R T   O F   E X E C U T A B L E    C O D E               */
+/****************************************************************************/
+
+
+    call initialise ;
+
+    call dos$get_dos_info (os_maj,os_min,oem_ser);
+
+    /******************************************************************/
+    /*            Get the current cursor position from DOS            */
+    /******************************************************************/
+
+    call dos$get_cursor (row,col);
+
+    /******************************************************************/
+    /*        Find out how much memory is available.                  */
+    /******************************************************************/
+
+    call dos$get_dos_memory (core_available);
+
+    /******************************************************************/
+    /*            Have a look at the PC's current video status        */
+    /******************************************************************/
+
+    call dos$get_video_info (col,mode,page);  /* this sets 'page' */
+
+    /******************************************************************/
+    /*        Which of the PC's drives is our current drive ?         */
+    /******************************************************************/
+
+    call dos$get_current_disk (disk);  /* get current drive */
+
+    call dos$set_current_disk (disk) ;
+
+    /* get the mouse going */   
+
+    call dos$reset_mouse (status);
+
+    call dos$show_mouse;
+
+    call dos$get_mouse_status (button_status,
+                               x_coord,
+                               y_coord);
+
+    x_coord = x_coord + 1;
+    y_coord = y_coord + 1;
+
+    call dos$set_mouse_position (x_coord,y_coord);
+
+    /******************************************************************/
+    /*       Right lets put the cursor somewhere quite useless        */
+    /******************************************************************/
+
+    row = 12; col = 39;
+
+    call dos$set_cursor (page,row,col);  /* 0,0 is top left */
+
+    status = 26;
+
+    /* call dos$clear_screen; */
+
+    /******************************************************************/
+    /*          Well thats all for today ladies and gentlemen         */
+    /******************************************************************/
+
+    call dos$terminate (status);         /* stop with error 26 */ 
+
+
+/***************************************************************************/
+/* This procedure simply initialises a few variables to clean values.      */
+/***************************************************************************/
+ 
+initialise:
+
+    proc;
+
+    page = 0;
+    row  = 0;
+    col  = 0;
+    disk = 2;
+    mode = 0;
+
+    call dos$clear_screen;
+
+    end;
+
+    end;
+

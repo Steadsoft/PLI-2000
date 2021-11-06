@@ -1,0 +1,195 @@
+lines:
+
+   proc options (main);  /* this will get control from DOS */
+
+/****************************************************************************/
+/*                           COPYRIGHT NOTICE                               */
+/****************************************************************************/
+/* Vulkan CONFIDENTIAL INFORMATION:                           Category:  2  */
+/* COPYRIGHT (c) 1990 Vulkan Technologies Ltd.                              */
+/*                                                                          */
+/* This data file contains confidential and proprietary information of      */
+/* Vulkan Technologies Ltd, and any reproduction, disclosure, or other use  */
+/* in whole or in part, is hereby expressly prohibited.                     */
+/*                                                                          */
+/* This restriction applies unless, prior written agreement or prior        */
+/* written permission has been given by Vulkan Technologies Ltd.            */
+/*                                                                          */
+/* Unlawful use of this material shall render the using party liable to     */
+/* prosecution.                                                             */
+/*                                                                          */
+/****************************************************************************/
+
+/****************************************************************************/
+/* This simple program demonstrates/tests some of the runtime library calls */
+/* that pertain to the graphics system on a PC. This particular example has */
+/* been written for EGA.                                                    */
+/****************************************************************************/ 
+
+   % include 'graphics';   /* Graphics constants    */
+   % include 'dos';        /* DOS/BIOS system calls */
+
+   /* the following variables default to automatic (stack) */
+
+   dcl mode                bin(15); 
+   dcl prev_mode           bin(15);
+   dcl pixel               bin(15);
+   dcl I                   bin(15);
+   dcl page                bin(15);
+   dcl (X,Y)               bin(15);
+
+   dcl (mrp, mip)	   bin (15);
+   dcl (erp, eip)	   bin (15);
+   dcl (xmrp, xerp)	   bin (15);
+   dcl (xmip, xeip)	   bin (15);
+   dcl color		   bin (15);
+
+   /* these however are static */
+
+   dcl cols                bin(15) static;
+   dcl (x,y,J)             bin(15) static;
+   dcl border              bin(15) static;
+   dcl skips               bin(15) static;
+   dcl status              bin(15) static;
+
+   /******************************************************************/
+   /* Retreive the current video mode from the system and save it.   */
+   /******************************************************************/ 
+
+   page = 0;
+
+   skips = 1;
+
+   /* remember all vars are passed by ref so prev_mode gets set */
+   /* by the called module.                                     */
+
+   call dos$get_video_info (cols,prev_mode,page); /* save current mode */
+
+   /*****************************************************************/
+   /*            Put the adapter into EGA 640x350 mode.             */
+   /*****************************************************************/
+   
+   mode = GFX_640x350_16;
+
+   call dos$set_video_mode (mode);  /* put into EGA 640x320 mode */
+
+   /*********************************************************************/
+   /* Set the Overscan (INT 10h subfunction 01) (I think this is wrong) */
+   /*********************************************************************/
+
+   border = 4;
+
+   call dos$set_overscan (border);
+
+   call dos$reset_mouse (status);
+
+   call dos$show_mouse;
+
+   /*********************************************************************/
+   /*       OK We now draw some messy looking lines on the screen.      */
+   /*********************************************************************/
+
+   X = 1;
+   Y = 1;
+   color = 0;
+
+   do J = 0 to 639;
+
+      do I = 0 to 350 ;
+
+while_loop:
+         do while (1);
+            mrp = I; mip = J;
+            erp = 0; eip = 0;
+            if mrp > 100 then do; mrp = mrp/10; erp = 1; end;
+            if mip > 100 then do; mip = mip/10; erp = 1; end;
+
+            xmrp = I * I - J * J;
+            xerp = 0-2;
+            xmip = 2 * I * J; xeip = 0-2;
+            if mrp > 100 then do; mrp = mrp/10; erp = 1; end;
+            if mip > 100 then do; mip = mip/10; erp = 1; end;
+            if mrp > 100 then do; mrp = mrp/10; erp = 2; end;
+            if mip > 100 then do; mip = mip/10; erp = 2; end;
+
+            call add (xmrp, xerp, 75);
+            call add (xmip, xeip, 75);
+
+            mrp = xmrp; erp = xerp;
+            mip = xmip; eip = xeip;
+
+            if xerp > 0 then do; xmrp = xmrp * 10; xerp = xerp - 1; end;
+            if xerp > 0 then do; xmrp = xmrp * 10; xerp = xerp - 1; end;
+            if xerp > 0 then do; xmrp = xmrp * 10; xerp = xerp - 1; end;
+            if xeip > 0 then do; xmip = xmip * 10; xeip = xeip - 1; end;
+            if xeip > 0 then do; xmip = xmip * 10; xeip = xeip - 1; end;
+            if xeip > 0 then do; xmip = xmip * 10; xeip = xeip - 1; end;
+            if xeip > 0 then do; xmip = xmip * 10; xeip = xeip - 1; end;
+
+	    color = color + 1;
+            if xmrp*xmrp + xmip*xmip > 10000 then
+	       go to exit;
+            if color > 15 then
+               do; color = 0; goto exit; end;
+
+         end;
+exit:
+	 x = I; y = J;
+	 
+         call dos$set_pixel (pixel,page,x,y); /* set a pixel on */
+
+      end;
+
+      call dos$set_cursor (page,Y,X);
+
+      put skip (skips) list ('This is Text on Graphics.');
+
+   end;
+
+   /**********************************************************************/
+   /* Now scan the entire display and change the colour of each pixel to */
+   /* its present colour + 1.                                            */
+   /**********************************************************************/
+
+   /* this bit is slow (for obvious reasons) so its commented out ! 
+
+   do J = 0 to 640;
+
+      do I = 0 to 320;
+
+         x = I + I + J;
+         y = I; 
+
+         call dos$get_pixel (pixel,page,x,y); /* get a pixel */
+
+         pixel = pixel + 1;
+
+         call dos$set_pixel (pixel,page,x,y); /* set a pixel on */
+
+      end;   
+
+   end;      */  /* Note how comments may be nested */
+
+   /*************************************************************************/
+   /* OK Now that we have finished, we will set the adapter to its old mode */
+   /*************************************************************************/
+
+   call dos$set_video_mode (prev_mode);
+
+add: procedure (m, e, amount);
+   dcl m bin (15); dcl e bin(15); dcl amount bin (15);
+   if e = 0-1 then
+      m = m + amount*10;
+   if e = 0 then
+      m = m + 75;
+   if e = 1 then
+      m = m + amount/10;
+   if e = 2 then
+      m = m + amount/100;
+
+   if m > 100 then
+      do; m = m/10; e = e + 1; end;
+   return;
+end add;
+
+   end lines; /* note the label here is optional in PL/I */

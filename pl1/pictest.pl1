@@ -1,0 +1,9 @@
+pictest:
+
+procedure;
+
+dcl 	p1		pic '99.99';
+dcl 	p2		pic 'zz9';
+
+end;
+

@@ -1,0 +1,23 @@
+bug2:
+
+proc;
+
+dcl number		bin(15);
+dcl x			bin(15);
+
+number (x)   = 5;   /* This is fine */
+
+number (x,x) = 5;   /* This faults in: build_dim_tree, attempting to gen offset expression !!  */
+
+
+
+/*
+
+call other (x,x,x,x);
+
+*/
+
+
+
+end;
+

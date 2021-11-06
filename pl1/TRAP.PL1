@@ -1,0 +1,8 @@
+trap:
+
+proc options (main);
+
+% include 'trap1';
+
+end;
+

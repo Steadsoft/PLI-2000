@@ -1,0 +1,98 @@
+copy_block:
+
+    procedure options (main);
+
+    dcl s$parse_command      entry (char(*) var,
+                                    bin(15),
+                                    char(*) var, char(*) var,
+                                    char(*) var, bin(31),
+                                    char(*) var, bin(15),
+                                    char(*) var);
+
+    dcl s$read_disk_block    entry (char(*) var,
+                                    bin(31),
+                                    char(*),
+                                    bin(15),
+                                    bin(15));
+
+    dcl s$error              entry (bin(15),
+                                    char(*) var,
+                                    char(*) var);
+
+    dcl e$form_aborted       bin (15) external;
+    dcl e$usage_given        bin (15) external;
+
+    dcl disk                 char(66) var;
+    dcl partner              bin(15);
+    dcl switches             bin(31);
+    dcl address              bin(31);
+    dcl block                char(4096);
+    dcl hex                  bin(15);
+    dcl status               bin(15);
+
+    /********************************************************************/
+    /*       S T A R T   O F    E X E C U T A B L E    C O D E .        */
+    /********************************************************************/
+
+    partner = 0;
+    hex     = 1;
+
+    call s$parse_command ('copy_block',
+                          status,
+                          'disk:device_name,required',
+                          disk,
+ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ'pathname:pathname,req',
+ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿfile,
+                          'block_number:number,longword,req,min(0),max(109460)',
+                          address,
+                          'number_blocks:number,longword,req,min(1),max(32767)',
+ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ           number,
+                          'end');
+
+    if status = e$form_aborted |
+       status = e$usage_given  then
+       stop;
+
+    if status ^= 0 then
+       do;
+       call s$error (status,
+                     'copy_block',
+                     'request aborted');
+       stop;
+       end;
+
+    /*********************************************************************/
+    /*        OK All is well so far, so get the block and dump it !      */
+    /*********************************************************************/
+
+ÿÿÿÿdo I = 1 to number;
+
+       call s$read_disk_block (disk,
+                               address,
+                               block,
+                               partner,
+                               status);
+
+       if status ^= 0 then
+          do;
+          call s$error (status,
+                        'dump_block',
+                        'request_aborted');
+          stop;
+          end;
+
+       call s$dump (0,
+                    block,
+                    4096,
+                    switches,
+                    status);
+
+       if status ^= 0 then
+          do;
+          call s$error (status,
+                     'dump_block',
+                     'request_aborted');
+       stop;
+       end;
+
+    end dump_block;

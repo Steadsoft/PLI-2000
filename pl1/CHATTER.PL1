@@ -1,0 +1,13 @@
+chatter:
+
+   procedure;
+
+   dcl s           bin(15);
+
+   s = 1;
+
+   put skip (s) list ('My name is chatter, and ive just been called.');
+
+   end chatter;
+
+

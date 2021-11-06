@@ -1,0 +1,29 @@
+deftest:
+
+   proc options (main);
+
+   dcl defy            bin(15) defined (base(I));
+   dcl base(10)        bin(15);
+   dcl I               bin(15);
+
+   dcl 1 struc,
+         2 ignore      char(9),
+         2 counter     bin(15);
+
+   dcl mask            defined (struc.counter) bin(15);
+
+  
+
+   I = 2;
+
+   base(I) = 3;
+
+   defy = 3;
+
+   mask = 6;
+
+   struc.counter = 6;
+
+   end;
+
+

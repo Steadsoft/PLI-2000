@@ -1,0 +1,32 @@
+arrtest:
+
+   proc options (main);
+
+   dcl ar(30)     bin(15);
+
+   dcl (I,J,one)   bin(15);
+
+   one = 1;
+
+   do I = 1 to 30;
+
+      ar(I) = I;
+
+   end;
+
+   do I = 1 to 30;
+
+      put skip(one) list('Start of loop');
+
+      do J = 1 to ar(I);
+
+         put skip(one) list('Im looping');
+
+      end;
+
+      put skip (one) list ('End of loop');
+
+   end;
+
+end;
+

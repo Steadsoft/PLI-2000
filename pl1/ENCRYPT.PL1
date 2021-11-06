@@ -1,0 +1,125 @@
+nu$encrypt_string:
+
+    procedure (string,
+               result);
+
+    dcl string          char (32) var;
+    dcl result          char (32) var;
+
+    dcl I               bin (15);
+    dcl v               bit (64) aligned;
+    dcl sched           (16) bit (64) aligned;
+    dcl pass            char (32) var;
+    dcl short           char (8) aligned;
+
+    dcl 1 cipher_overlay     defined (result),
+          2 len              bin (15),
+          2 data_blocks      (4) bit (64) aligned;
+
+    dcl 1 pass_overlay       defined (pass),
+          2 len              bin (15),
+          2 data_blocks      (4) bit (64) aligned;
+
+    dcl 1 conv               defined (result),
+          2 len              bin (15),
+          2 long (8)         bin (31);
+
+    dcl short_pass_bits      bit (64) aligned defined (short);
+
+    dcl s$encipher_block     entry ((16) bit (64) aligned,
+                                    bit (64) aligned);
+
+    dcl s$encipher_string_cbc entry ((16) bit (64) aligned,
+                                     bin (31),
+                                     bit (64) aligned,
+                                     (4) bit(64) aligned);
+
+    dcl s$get_key_schedule   entry (bit(64) aligned,
+                                    (16) bit (64) aligned);
+
+    dcl hex                  entry (bin(31),
+                                    bin(15)) returns (char(8) var);
+
+/***************************************************************************/
+/*       S T A R T    O F     E X E C U T A B L E     C O D E              */
+/***************************************************************************/
+
+    if length (string) <= 0 then
+       pass = '~~~~~~~~';
+    else
+       pass = string;
+
+    if length (pass) <= 8 then
+       do;
+       short = copy (pass||'~',4);
+       call set_key_schedule (short);
+       call s$encipher_block (sched,
+                              short_pass_bits);
+       result = short;
+       call convert_result;
+       return;
+       end;
+
+    /**********************************************************************/
+    /*                Process a 'long' password string.                   */
+    /**********************************************************************/
+
+    pass = copy (pass||'~'||byte(length(pass)),3);
+
+    result = pass;
+
+    v = pass_overlay.data_blocks (4);
+
+    do I = 1 to 32 by 8;
+       call set_key_schedule (substr(pass,I,8));
+       call s$encipher_string_cbc (sched,
+                                   4,
+                                   v,
+                                   cipher_overlay.data_blocks);
+    end;
+
+    call convert_result;
+
+    return;
+
+set_key_schedule:
+
+    procedure (k);
+
+    dcl k          char (8) aligned;
+
+    dcl key        bit (64) aligned;
+
+    dcl bits       bit (64) aligned defined (k);
+
+    substr (key,1,7) = substr (bits,58,7);
+    substr (key,8,57) = substr (bits,1,57);
+
+    call s$get_key_schedule (key,
+                             sched);
+
+    end;
+
+convert_result:
+
+    procedure;
+
+    dcl (J,K)     bin (15);
+    dcl tmp       char (64) var;
+
+    J = length (result);
+
+    tmp = ''; 
+
+    do K = 1 to 8;
+       tmp = tmp || hex(conv.long(K),8);
+    end;
+
+    result = substr (tmp,1,min(16,J));
+
+    end;
+
+    end nu$encrypt_string;
+
+
+

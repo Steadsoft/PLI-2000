@@ -1,0 +1,20 @@
+skipy:
+
+   proc options (main);
+
+   dcl s           bin(15);
+
+   s = 1;
+
+/* lab1:  */
+
+   if s ^= 0 then
+      do;
+      put skip(s) list ('Hello world');
+      put skip(s) list ('Hello world');
+      put skip(s) list ('Hello world');
+      put skip(s) list ('Hello world');
+      end;
+
+  end;
+

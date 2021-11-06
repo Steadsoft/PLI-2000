@@ -1,0 +1,17 @@
+dos$reboot:
+
+   proc;
+
+   dcl pli$reboot      entry;
+   dcl a               bin (15);
+
+   a = 1;
+
+   put skip(a) list ('Reentering BIOS/ROM for reboot.');
+
+   call pli$reboot;
+
+   end dos$reboot;
+
+
+

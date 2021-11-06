@@ -1,0 +1,83 @@
+locate_block:
+
+    procedure options (main);
+
+    dcl s$parse_command      entry (char(*) var,
+                                    bin(15),
+                                    char(*) var,char(*) var,
+                                    char(*) var,char(*) var,
+                                    char(*) var);
+
+    dcl s$read_disk_block    entry (char(*) var,
+                                    bin(31),
+                                    char(*),
+                                    bin(15),
+                                    bin(15));
+
+    dcl disk                 char(66) var;
+    dcl partner              bin(15);
+    dcl block_num            bin(31);
+    dcl block                char(4096);
+    dcl status               bin(15);
+    dcl match                char(256) var;
+    dcl first                bit(1) static init('1');
+    dcl pic_block            pic 'zzzzz9';
+
+    /**********************************************************************/
+    /*          S T A R T   O F   E X E C U T A B L E    C O D E          */
+    /**********************************************************************/
+
+    call s$parse_command ('locate_block',
+                          status,
+                          'disk:device_name,required',
+                          disk,
+                          'match:string,required',
+                          match,
+                          'end');
+
+    partner   = 0;
+    block_num = 0;
+
+    call s$read_disk_block (disk,
+                            block_num,
+                            block,
+                            partner,
+                            status);
+
+    do while (status = 0);
+
+       if index (block,match) ^= 0 then
+          do;
+          if first then
+             /*****************************/
+             /* Output the header string. */
+             /*****************************/
+             do;
+             put skip list
+             ('The following block(s) on: '||
+              disk||
+              ' contained: '||
+              match);
+              put skip list ('                                       ');
+              first = '0'b;
+              end;
+          /*****************************************/
+          /* OK output the details about the block */
+          /*****************************************/
+          pic_block = block_num;
+          put skip list ('Block Number: '||pic_block);
+          end;
+
+       /*************************************/
+       /* Read the next block from the disk */
+       /*************************************/
+
+       block_num = block_num + 1;
+       call s$read_disk_block (disk,
+                               block_num,
+                               block,
+                               partner,
+                               status);
+    end;
+
+    end locate_block;

@@ -1,0 +1,38 @@
+block0:
+
+
+        procedure;
+
+        dcl junk                bit (1);
+
+block1:
+
+        proc;
+
+        junk = '1';
+
+        
+
+block2a:
+
+        proc;
+
+        junk = '2';
+
+        end;  /* block2a */
+
+block2b:
+
+        proc;
+
+        junk = '2b';
+
+        end; /* block2b */
+
+        end; /* block1 */
+
+end; /* block0 */
+
+
+        
+

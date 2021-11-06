@@ -1,0 +1,17 @@
+sel:
+
+   proc options (main);
+
+   dcl (a,b,c,d)           bin(15);
+
+   select(a);
+
+   when(b)
+       stop;
+   when(c)
+       stop;
+   end;
+
+end;
+
+

@@ -1,0 +1,15 @@
+fault:
+
+        proc;
+
+        if 5 > 4 then
+           b = c;
+        else
+           if 8 > 4 then
+              stop;
+           else
+              stop;   
+
+        end;
+ 
+

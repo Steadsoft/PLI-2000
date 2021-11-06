@@ -1,0 +1,16 @@
+loops:
+
+proc options (main);
+
+dcl x                   bin(15);
+dcl (I,J,K)             bin(15);
+
+x = 1;
+
+
+do I = I+J*K-I+(J/2) to 10 by 2;
+   put skip(x) list('Im in the loop');
+
+   end;
+
+   end;

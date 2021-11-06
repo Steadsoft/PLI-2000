@@ -1,0 +1,8 @@
+declares:
+
+proc;
+
+dcl function    entry(bin(15)) returns(bin(15));
+
+end;
+

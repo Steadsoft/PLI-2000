@@ -1,0 +1,31 @@
+parmbug:
+
+   proc options (main);
+
+   dcl (x,y)       bin(15);
+
+
+
+/*********************************************************************/
+/* This internal proc, declares its args in a parenthesised list.    */
+/*********************************************************************/
+
+inner:
+
+   proc (a,b);
+
+   dcl (a)       bin(15);
+   dcl b         bin(15);
+
+   end;
+
+
+   call inner (x,y);
+
+   stop;
+
+
+
+
+end parmbug;
+

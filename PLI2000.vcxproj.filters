@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{8b983770-c124-4a18-b31f-e623e1d463b1}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{d8ecb953-9a61-4cb8-9933-051d44a458bc}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{238f61cc-8a33-4385-8b17-e6d1c7c8c851}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Compiler Source\ALLOCATE.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\CODEGEN.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\Cofflib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\DECLARE.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\DT.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\EMITTER.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\LIST.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\NODE.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\OBJTESTING.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\PASS1.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\PASS2.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\PLATFORM.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\PLI.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\REPORT.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\SCANNER.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler Source\SYM.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Compiler Source\C_TYPES.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\COFF.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\CONVERT.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\EXTRNALS.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\FIXUP.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\GLOBALS.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\INTAFACE.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\LEX.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\NODES.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\OBJDEFS.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\OPCODES.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\OPTIONS.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\PENTIUM.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\PLI_MACHINE.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\POINTERS.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\RELEASE.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\SYMTAB.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\TOKEN.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler Source\TOKENS.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

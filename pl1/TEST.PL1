@@ -1,0 +1,20 @@
+pli$test:
+
+   proc;
+
+   dcl (a,b,c)     bin(15);
+
+   
+   a = b > c;
+
+
+pli$tester:
+
+   proc;
+
+   end;
+
+   end;
+
+
+

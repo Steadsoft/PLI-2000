@@ -1,0 +1,12 @@
+at:
+
+   proc;
+
+   dcl array(10)       bin(15);
+
+   array = 0;
+
+   end;
+
+
+

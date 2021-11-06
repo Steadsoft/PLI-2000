@@ -1,0 +1,19 @@
+builtin_bug:
+
+proc;
+
+/* The compiler on 27-SEP-2002 faulted in pass2                      */
+/* It faulted trying to process a subscripted reference to a builtin */
+/* it ended up treating the reference as an array, which it isnt.    */
+/* It died when it tried to use dimension ptrs and stuff.            */
+
+dcl max	        builtin;
+dcl min		entry;
+dcl (a,b,c)	bin(15);
+
+a = min(b,c); 
+/*a = max(b,c);*/
+
+end;
+
+

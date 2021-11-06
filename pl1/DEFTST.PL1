@@ -1,0 +1,45 @@
+deftst:
+
+   proc options (main);
+
+   dcl 1 counters,
+         2 one         bin(15),
+         2 two         bin(15),
+         2 three       bin(15);
+
+   dcl mask            def(two) bin(15);
+   dcl I               bin(15);
+   dcl S               bin(15);
+
+   one   = 1;
+   two   = 2;
+   three = 3;
+
+   S = 1;
+
+   do I = 1 to one;
+      put skip (S) list ('One.');
+   end;
+
+   do I = 1 to two;
+      put skip (S) list ('Two.');
+   end;
+
+
+   do I = 1 to three;
+      put skip (S) list ('Three.');
+   end;
+
+   mask = 10;
+
+   do I = 1 to two;
+      put skip (S) list ('Two (after mask).');
+   end;
+
+
+end deftst;
+
+
+
+   
+

@@ -1,0 +1,13 @@
+looper:
+
+procedure;
+
+dcl I   bin(15);
+
+
+do I = 1 repeat 10;
+   I = I;
+end;
+
+end looper;
+

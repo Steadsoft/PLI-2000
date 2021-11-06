@@ -1,0 +1,12 @@
+sem:
+
+   proc;
+
+   dcl a    bin(31);
+   dcl b    ptr;
+
+   a = a + b;
+
+end sem;
+
+

@@ -1,0 +1,17 @@
+text:
+
+/* Put the video adapter into 80 * 25 text mode */
+
+   proc options (main);
+
+   dcl mode        bin(15);
+
+   % include 'graphics';
+   % include 'dos';
+
+   mode = TXT_80x25_16;
+
+   call dos$set_video_mode (mode);
+
+   end;
+

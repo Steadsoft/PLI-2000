@@ -1,0 +1,15 @@
+codebug:
+
+   proc options (main);
+
+   dcl one     bin(15);
+
+   one = 1;
+
+   if one ^= 0 then
+      do;
+      put skip(one) list ('This worked OK.');
+      end;
+
+   end;
+

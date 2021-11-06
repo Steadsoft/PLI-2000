@@ -1,0 +1,18 @@
+mcp:
+   
+   proc options (main);
+
+   /* test NDP support */
+
+   dcl a               bin(15);
+   dcl b               bin(15);
+
+   a = 9;
+   b = 3;
+
+   a = a * b;
+
+   end;
+
+
+

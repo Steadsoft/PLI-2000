@@ -1,0 +1,11 @@
+tst:
+
+   proc (a);
+
+   dcl a   bin(15);
+
+   a = 0;
+
+   end;
+
+

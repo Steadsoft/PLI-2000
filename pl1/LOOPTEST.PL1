@@ -1,0 +1,66 @@
+/*****************************************************************/
+/* Test the parsers correctness for various PL/I looping options */
+/*****************************************************************/
+
+looptest:
+
+procedure options (main);
+
+dcl (I,J,K,L,M,N,P)     bin(15);
+
+do I = J to K;
+   ;
+end;
+
+do I = J to K by P;
+   ;
+end;
+
+do I = J by P to K;
+   ;
+end;
+
+do I = 10;
+   ;
+end;
+
+do I = 10 repeat L;
+   ;
+end;
+
+do I = J to K while(N);
+   ;
+end;
+  
+do I = J to K until(P);
+   ;
+end;
+  
+do I = J to K by 23 while(P) until(P);
+   ;
+end;
+  
+do I = J to K until(P) while(P);
+   ;
+end;
+
+do I = J to K by P;
+   ;
+end;
+
+do I = J by P to K;
+   ;
+end;
+
+do I = 10;
+   ;
+end;
+
+do I = 10 repeat L;
+   ;
+end;
+
+end looptest;
+
+
+

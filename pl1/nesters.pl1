@@ -1,0 +1,29 @@
+block_0:
+
+proc;
+
+%replace ABC	by 'this is some text';
+
+put skip(a) list(ABC);
+
+call block_1;
+
+
+block_1:
+
+proc;
+
+call block_2;
+
+block_2:
+
+
+proc;
+
+end;
+
+end;
+
+
+end;
+

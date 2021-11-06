@@ -1,0 +1,17 @@
+key:
+
+   proc options (main);
+
+   % include 'dos';
+
+   dcl (d,r)       bin(15);
+
+   d = 3;
+   r = 0;
+
+   call dos$set_repeat_rate (d,r);
+
+   end;
+
+
+

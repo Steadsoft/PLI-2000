@@ -1,0 +1,29 @@
+/* This gens an exception because we do not thread begin blocks correctly. */
+/* The begin block below is a 'block' and has a block node, these node were */
+/* never considred as 'statements' because they are never executed as they */
+/* appear (procs are only activated by a call). However 'begin' blocks ARE */
+/* executed as they appear. Block nodes never had a 'type' field setup */
+/* because they never needed one, however in the case of 'begin' blocks they */
+/* do.										*/
+
+
+block:
+
+
+   proc;
+
+   dcl a           bin(15);
+
+
+    call begin.8;  
+
+
+       begin;
+
+           a = 0;
+
+       end;
+
+   end;
+
+

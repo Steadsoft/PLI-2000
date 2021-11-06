@@ -1,0 +1,54 @@
+array:
+
+   proc options (main);
+
+   dcl nums(10)        bin(15);
+
+   dcl I               bin(15);
+   dcl J               bin(15);
+   dcl one             bin(15);
+   dcl temp            bin(15);
+
+   one = 1;
+
+   do I = 1 to 10;
+
+      nums(I) = 0;
+
+      temp = nums(I); 
+
+      call reveal (temp); 
+
+   end;
+
+   do I = 1 to 10;
+
+      nums(I) = I;
+
+      temp = nums(I); 
+
+      call reveal (temp); 
+
+   end;
+
+reveal:
+
+   proc (val);
+
+   dcl val         bin(15);
+
+   do J = 1 to val;
+
+      put skip(one) list('Ive been called');
+
+   end;
+
+   put skip(one) list('Im leaving.');
+
+   end;
+
+
+
+end;
+ 
+

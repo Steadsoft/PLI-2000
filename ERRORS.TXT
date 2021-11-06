@@ -1,0 +1,207 @@
+This 'select' statement has no 'otherwise', this may result in*a runtime error, if no WHEN clause is satisfied.
+An identifier was not found where expected.
+The token : was not found where expected.
+The keyword 'procedure' was not found where expected.
+The token ; was not found where expected.
+The keyword 'end' was not found where expected.
+Invalid syntax on this line.
+Unrecogised attribute specification.
+The token ( was not found where expected.
+Syntax error in scale factor specification.
+The token ) was not found where expected.
+Invalid syntax found in expression.
+This is an unrecognisable statament.
+Invalid syntax in a 'declare' statement.
+Invalid syntax found in 'if' statement.
+Invalid syntax in assignment statement.
+Unable to find or access the specified source file*'%s', compilation has been terminated.
+Invalid syntax found in 'call' statement."
+Invalid syntax somewhere within a 'do' group.
+Invalid syntax somewhere within a 'do' loop.
+The token = was not found where expected.
+The keyword 'to' was not found where expected.
+Premature end of source file.
+The keyword 'then' was not found where expected*this may cause other false errors to be reported.
+Fatal, the token stack has overflowed.
+Invalid syntax found in an ENTRY declaration.
+The keyword 'set' was not found where expected.
+Invalid syntax in an 'allocate' statement.
+Invalid syntax in a 'return' statement.
+The subscripted reference beginning '%s' must have*as many subscripts as the array has dimensions this*includes any inherited structure dimensions.
+Compiler Error, a parsing function was called but*the function was unable to find expected token*Correct all other errors, and if this message persists*save the source file and contact the implementors.
+An expected loop control variable was not found.
+This statement contains a duplicate declaration*of '%s' within the same block.
+The undeclared name '%s' has been declared*as a 'fixed bin(15)' in the current block.
+'%s' has been declared with more than one storage*class, identifiers may have only one class.
+'%s' has been declared with more than one data type*identifiers may have only one data type.
+'%s' has been declared with more than one scope*identifiers may have only one scope.
+'%s' has been declared with more than one scale*factor, arithmetic identifiers may have only one scale.
+This statement contains a structure declaration that*does not start with a level number of 1, this is invalid.
+An expected structure field name or substructure*name, was not found.
+An expected structure level number was not found.
+This level number is not greater than the preceding level*number, but the preceding text implies that it should be.
+The token , was not found where expected.
+All scalar fields lying immediately within a structure*or substructure, must have the same level number.
+The attribute VARYING has been specified more than*once for the identifier '%s'.
+The attribute varying can only be specified for*identifiers declared as CHAR.
+A '%s' was found where another token was expected.
+Unable to open or find, the specified include file*'%s' compilation has been terminated.
+The binary identifier '%s' has been specified *with an unsupported precision, binary data must *have a precision of either 15 or 31.
+Syntax error in this procedures argument list.
+'%s' has been implicitly declared as a parameter but*has been given a storage class, parameters cannot be*declared with a storage class.
+'%s' has been declared with asterisk extents*this is only allowed for character string*parameters.
+This statement contains unbalanced parentheses.
+The compiler is unable to allocate a statement*node, either simplify the source file, or make*more memory available to the compiler.
+Compiler Error, an attempt was made to allocate*an unknown statement node type. *Correct all other errors, and if this message persists*save the source file and contact the implementors.
+'%s' has been declared with more than one storage*alignment, identifiers may have only one alignment.
+Compiler Error, an unknown state has ocurred*within the lexical analyser. *Correct all other errors, and if this message persists*save the source file and contact the implementors.
+The closure label on this 'end' statement, does*not match the label on its associated 'procedure'.
+Compiler Error, an invalid type of statement node*has been encountered, inserting a node. Save this*source file, and contact the implementors.
+Compiler Error, an invalid type of IF node has*been encountered. *Correct all other errors, and if this message persists*save the source file and contact the implementors.
+Compiler Error, a NULL node pointer has been*encountered whilst getting a next-node. Save this*source file, and contact the implementors.
+Compiler Error, an invalid type of statement node*has been encountered, getting next stmt. Save this*source file, and contact the implementors.
+Compiler Error, an invalid type (%s) of statement node*has been encountered, during the semantic phase, save*the source file, and contact the implementors.
+The data type of '%s' is inconsistent with its context*in this statement, an arithmetic data type is required.
+The data type of '%s' is inconsistent with its context*in this statement, an 'entry' data type is required.
+The storage class of '%s' is inconsistent with its context*in this statement, a 'based' variable is required.
+The data type of '%s' is inconsistent with its context*in this statement, a 'pointer' valued reference is required.
+The data type of '%s' is inconsistent with its context*in this statement, a 'label' data type is required.
+The identifier '%s' has been declared without a data*type, a default type of 'fixed bin(15)' has been supplied.
+The scale of '%s' is inconsistent with its context*in this statement, a scale of 'fixed' is required.
+'%s' has been declared with an arithmetic scale, this*is only applicable to 'binary' or 'decimal' variables.
+'%s' has been declared with a data type that is*incompatible with its declared scale.
+The structure '%s' has been used in a manner that*is inconsistent with the requirements of this statement*a scalar fixed point variable is required.
+The structure '%s' has been used in a manner that*is inconsistent with the requirements of this statement*an entry type identifier is required.
+The structure '%s' has been used in a manner that*is inconsistent with the requirements of this statement*a pointer variable is required.
+The structure '%s' has been used in a manner that*is inconsistent with the requirements of this statement*a label type identifier is required.
+Invalid conversion, the noncomputational item '%s'*cannot be converted to string or arithmetic data.
+The undeclared parameter '%s' has been declared*as a 'fixed bin(15)' in the current block.
+The invalid token '%s' has been encountered*this error may cause other false errors to*be reported !*
+The qualified structure reference to '%s'*cannot be resolved to any declaration known to this*block.
+The structure of the identifier beginning '%s'*contains invalid syntax.
+Compiler Error, an invalid type of statement node*has been encountered, in 'nodetype'. Save this*source file, and contact the implementors.
+The name beginning, '%s'*has a length that exceeds the implementations*limit of 32, it has been truncated to this length.
+The structure qualified reference to '%s', is illegal*for a non-structure, scalar variable.
+The subscripted reference to '%s', is illegal for*a non dimensioned, scalar variable.
+The array '%s' has been referenced with*an insufficient number of subscripts.
+The procedure '%s' has been referenced with*an insufficient number of arguments.
+This statement contains an ambiguous reference*to '%s'.
+The float decimal identifier '%s' has been specified *with an unsupported precision, float decimal data must *have a precision of 15 digits or less.
+'%s' is an automatic or defined variable that is referenced*in an extent expression of an automatic or defined variable*that is declared in the same block.
+This feature has not yet been implemented, in the code*generator, the compiler cannot to translate this line.
+A possible 'while' or 'until' was not found where expected.
+An error ocurred attempting to open the object file*please ensure that there is enough free space on the*disk, before continuing.
+Compiler Error, an invalid type of expression node*has been encountered, while dumping parse tree, save*the source file, and contact the implementors.
+Compiler Error, an unknown error number has been*generated at or near this line.
+Syntax error within a 'select' group, only an 'otherwise'*or multiple 'when' clauses may be immediately contained*within a 'select' group.
+The source file contains excessive data.
+The internal procedure '%s' has been defined as*a function, but this statement references it in a call*statement, this is invalid. 
+The procedure '%s' has been referenced with*an excessive number of arguments.
+The function '%s' has been referenced with an*excessive number of arguments.
+The function '%s' has been referenced with an*insufficient number of arguments.
+'%s' is not a builtin function known to this implementation.
+An attempt has been made to define a replacement with*the same name, as an already define value, this*statement has been ignored.
+The array '%s' has been referenced with*an excessive number of subscripts.
+This statement contains a recursive call to '%s', but*this procedure has not been defined with the 'recursive'*option. 
+The fixed decimal identifier '%s' has been specified *with an unsupported precision, fixed decimal data must *have a precision of 18 digits or less.
+'%s' is an unrecognised preprocessor directive.
+'%s' will be passed by value because its attributes do*not match those of the corresponding parameter. Enclosing*the argument in parentheses will prevent this warning.
+Compiler Error, the code generator has requested the*emission of an unknown instruction. *Correct all other errors, and if this message persists*save the source file and contact the implementors.
+Compiler Error, an invalid register number has been*encountered during code emission. *Correct all other errors, and if this message persists*save the source file and contact the implementors.
+Procedures that return a result, cannot contain return*statements that do not return a result.
+Procedures that do not return a result, cannot contain*return statements that return a result.
+The procedure '%s' has been declared as a function that*returns a result, however the procedure does not contain any*return statements.
+Compiler Error, an attempt has been made to generate*an illegal register to register move. Save this*source file and contact the implementors.
+Compiler Error, the emitter is unable to determine*a target register. *Correct all other errors, and if this message persists*save the source file and contact the implementors.
+Compiler Error, an attempt has been made to generate*an instruction with an unspecified operand size.*Correct all other errors, and if this message persists*save the source file and contact the implementors.  
+Compiler Error, an attempt has been made to generate*an instruction with its operand in memory and a register.*Correct all other errors, and if this message persists*save the source file and contact the implementors.
+Compiler Error, an attempt has been made to generate*an instruction with incompatible operand sizes.*Correct all other errors, and if this message persists*save the source file and contact the implementors.
+'%s' is an unrecognised procedure option. It will be ignored.
+Only the outermost procedure may have the 'options' option specified.
+The main entry point of a PL/1 program cannot be defined*with the 'returns' option.
+The procedure '%s' has parameters, this is not allowed*for the main procedure of a PL/1 program.
+The procedure label '%s' begins with a reserved prefix*this is ill advised and may cause unexpected behaviour in this*or a future release.
+The procedure '%s' is never called from within this block*no code will be generated for this procedure.
+Compiler Error, an unknown data type has been encountered*during the allocation of constant storage.*Correct all other errors, and if this message persists*save the source file and contact the implementors.
+The procedure '%s' has been referenced in an expression as*if it were a function, however it has not been defined as a function.
+The argument to the 'condition' clause of this on-unit must*be a programmer defined condition.
+The argument to the I/O condition clause of this on-unit*must be a file valued reference.
+'%s' is not a programmer defined condition. The value*used in this signal statement must be a programmer defined*condition name.
+'%s' is not a valid file reference. The value specified*in this I/O condition signal statement, must be a file*value.
+Compiler Error, an attempt has been made to release a node*that should never be released.*Correct all other errors*and if this message persists*save the source file and contact the implementors.
+Compiler Error, an insufficient number of subscripts has been*detected in a reference previously*validated as valid.*Correct all other errors*and if this message persists*save the source file and contact the implementors.
+The qualified structure reference beginning '%s'*cannot be resolved to any declaration known to this*block.
+A possibly recursive declaration of a defined or based*variable has been encountered when generating addressing*code for '%s', code generation is being terminated.
+Compiler Error, an invalid type of statement node*has been encountered, during code generation, save*the source file, and contact the implementors.
+A 'leave' statement may only appear within a 'do' group. 
+Compiler Error, an attempt has been made to generate*an incorrect Coprocessor instruction.*Correct all other errors, and if this message persists*save the source file and contact the implementors.
+A comment has not been properly terminated, this*may result in further errors being reported.
+This assignment statement has an unrecognised option*specified, only BY NAME is allowed.
+Only structure to structure assignments may have the*BY NAME option specified. The target of this assignment*is not a structure.
+Only structure to structure assignments may have the*BY NAME option specified. The right hand side of this*assignment is not a structure.
+The static item '%s' does not appear to be used in*this or any contained block.
+The automatic item '%s' does not appear to be used in*this or any contained block.
+The based item '%s' does not appear to be used in*this or any contained block.
+The defined item '%s' does not appear to be used in*this or any contained block.
+Unable to delete previous error file '%s'*please check that you have access to it.
+Unable to delete previous object file '%s'*please check that you have access to it.
+The target of this assignment statement '%s'*is a constant !.
+The target of this assignment statememt '%s' is a*numeric valued constant !
+The target of this assignment statememt '%s' is a*statement label constant !
+The item '%s' has a data type that is not yet supported*by the compilers storage allocator.
+The item '%s' has a data type that is not yet supported*by the compilers code generator.
+An incorrectly specified repetition factor has been found*the correct syntax is: (<integer>).
+The repetition factor in an 'initial' option, must be greater than zero.
+The item '%s' is not an array, yet has an 'initial' option*with a repetition factor !
+A syntax error has been found in the '%s' option.
+The unrecognised option '%s' has been found in an OPEN statement.
+Invalid expression found in the 'TO' option of this DO group.
+Invalid expression found in the 'BY' option of this DO group.
+Invalid expression found in the 'REPEAT' option of this DO group.
+Invalid expression found in the initial value for an iterative DO group.
+Invalid syntax found in the WHILE option of this DO group.
+Invalid syntax found in the UNTIL option of this DO group.
+A duplicate '%s' clause appears in this statement, a ',' may be missing.
+The keyword '%s' that appears in this statement is unrecognised.*The remainder of the statement has been ignored.
+The data type of '%s' is inconsistent with its context*in this statement, a FILE value is required.
+The option '%s' is not allowed for STREAM/PRINT files.
+A file cannot be opened as PRINT and INPUT.
+A file cannot be opened as DIRECT and SEQUENTIAL.
+A file can only be opened as one of either INPUT, OUTPUT or UPDATE. 
+A DO appears to have been omitted in this '%s' statement.
+Unbalanced parentheses somewehere in a '%s' statement.
+FILE and STRING have both been specified in this statement.*Only one of these may be specified.
+LIST and EDIT have both been specified in this statement.*Only one of these may be specified.
+Nested format specifications MUST be preceded by an iteration specification.
+A picture specification MUST be a character string constant.
+Unknown format specifier '%s' found in this format list.
+The DATA option in a PUT statement, is not supported in this implementation.
+The unrecognised option '%s' was found in this PUT statement.
+The unrecognised option '%s' was found in this GET statement.
+The compilers %%INCLUDE nesting limit has been exceeded.*You may not nest include files more than 10 levels*please ensure that there are no recursive inclusions.
+Probable compiler error. A processing exception %s*has ocurred. Please contact the implementors with a copy of all relevant*source and include files.*
+An invalid effective address has been generated in an instruction source.
+An invalid effective address has been generated in an instruction target.
+An instruction cannot use immediate value as a target. Code Generator Error.
+Both source and target effective addresses are memory, this is invalid.
+Value too large to fin in 16-bit displacement. Code Generator Error.
+A displacement value was specified in an instruction, yet addressing mode implies no displacement.
+Magnitude of displacement conflicts with addressing mode.
+Single operand instructions must put effective address in target not source.
+An invalid first operand has been encountered during generation of a two operand instruction.
+The first (target) operand is missing during generation of a two operand instruction.
+The second (source) operand is present during generation of a single operand instruction.
+Opcode table command for a second (source) operand during generation of a single operand instruction.
+An instruction cannot be processed, no opcode table exists for the operation.
+An instruction cannot be proceseed, unrecognised instruction command found in command table.
+An illegal register has been specified as an index register in the second (source) operand.
+An illegal register has been specified as an index register in the first (target) operand.
+The COFF code section has not been initialized, instruction cannot be generated.
+A 32 bit register cannot have an 8 or 16 bit operand size.
+An 8 bit register cannot have a 16 or 32 bit operand size.
+A 16 bit register cannot have an 8 or 32 bit operand size.
+ 
+
+
+
+

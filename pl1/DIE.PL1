@@ -1,0 +1,16 @@
+if:
+
+        proc;
+
+        dcl sys_master                  char (32) var static;
+        dcl status                      bin(15);
+        dcl place                       ;
+
+        if (a + 3 * 5) >= 23.66 / (sqrt - 12.3) then
+           stop;    
+
+        if Counter <= slave_prefix / 33 then
+           stop;
+
+        end;
+

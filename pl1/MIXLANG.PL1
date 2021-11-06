@@ -1,0 +1,43 @@
+testsup:
+
+   proc options (main);
+
+   dcl spt_shift_right entry (bin(15),bin(15)); /* these are in support.c */
+   dcl spt_shift_left  entry (bin(15),bin(15));
+
+   dcl (a,b,c,d)       bin(15);
+
+   d = 1;
+
+   a = 8;
+
+   do b = 1 to a;
+
+      put skip (d) list ('You should see me 8 times');
+
+   end;
+
+   c = 2;
+
+   call spt_shift_right (a,c);
+    
+   do b = 1 to a;
+
+      put skip (d) list ('You should see me 2 times');
+
+   end;
+
+   c = 1;
+
+   call spt_shift_left (a,c);
+
+   do b = 1 to a;
+
+      put skip (d) list ('You should see me 4 times');
+
+   end;
+
+
+end;
+
+

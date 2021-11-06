@@ -1,0 +1,15 @@
+ambig:
+
+   proc;
+
+   dcl 1 structure,
+         2 inner1,
+           3 number        bin(15),
+         2 inner2 ,
+           3 number        bin(15);
+
+   structure.number = 0;
+
+   end;
+
+

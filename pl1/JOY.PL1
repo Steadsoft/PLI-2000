@@ -1,0 +1,76 @@
+joy:
+
+   proc options (main);
+
+   % include 'dos';
+   % include 'joystick';
+
+   dcl (I,sw,ax,ay,bx,by,status)      static     bin(15);
+   dcl s                                         bin(15);
+   dcl (page,cx,cy)                              bin(15);
+   dcl prev                        bin(15);
+
+   s  = 0;  
+   sw = 0;
+   ax = 0;
+   ay = 0;
+   bx = 0;
+   by = 0;
+   status = 0;
+   prev = 0;
+   page = 0;
+   cx = 0;
+   cy = 20;
+
+   call dos$clear_screen;
+
+   do I = 1 to 10;
+   
+      I = 1;
+
+      call dos$read_joystick (sw,ax,ay,bx,by,status);
+
+      ax = ax / 9;
+      ay = ay / 3;
+
+      call dos$set_cursor (page,ax,ay); 
+
+      if sw ^= prev then
+         do;
+         prev = sw;     
+
+         cx = 0; cy = 20;
+      /*
+         call dos$set_cursor (page,cx,cy);  */
+
+         if sw = NO_JS_SWITCHES then
+            do;
+            put skip(s) list('No switches  ');
+            end;
+         else 
+         if sw = LEFT_JS_DOWN then
+            do;
+            put skip(s) list('Left switch  ');
+            end;
+         else
+         if sw = RIGHT_JS_DOWN then
+            do;
+            put skip(s) list('Right switch ');
+            end;
+         else
+         if sw = BOTH_JS_DOWN then
+            do;
+            put skip(s) list('Both switches');
+            end;
+         else
+            do;
+            put skip(s) list('Unexpected switch value from DOS');  
+            end;
+         end;
+
+   end;
+
+
+   end;
+
+

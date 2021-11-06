@@ -1,0 +1,17 @@
+qualbug:
+
+   proc;
+
+   dcl 1 struc,
+         2 inner,
+           3 counter       bin(15);
+
+
+   counter             = 0;
+   struc.counter       = 0;
+   struc.inner.counter = 0;
+
+
+end;
+
+

@@ -1,0 +1,14 @@
+divy:
+
+   proc options (main);
+
+   /* test codegen for divide */
+
+   dcl a               bin(15) static;
+
+   a = 100;
+
+   a = a / 10;
+
+   end;
+

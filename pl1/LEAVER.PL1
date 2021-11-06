@@ -1,0 +1,19 @@
+leaver:
+
+   proc options (main);
+
+   dcl I       bin(15);
+
+
+leave:
+
+   do I = 1 to 100;
+
+      leave leave;
+
+   end; 
+
+   leave;
+
+end;
+

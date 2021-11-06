@@ -1,0 +1,16 @@
+vid:
+
+
+   proc options (main);
+
+   dcl mode        bin(15);
+
+   % include 'dos';
+
+   mode = 20;
+
+   call dos$set_video_mode (mode);
+
+   end;
+
+

@@ -1,0 +1,21 @@
+tdec:
+
+   proc options (main);
+
+   dcl spt_cv_short_to_dec entry (bin(15),bin(15),bin(15),bin(15));
+
+   dcl binary              bin(15);
+   dcl decimal             bin(15);
+   dcl p                   bin(15);
+   dcl q                   bin(15);
+
+   binary = 0-1234;
+   decimal = 0;
+   p = 0;
+   q = 0;
+
+   call spt_cv_short_to_dec (binary,decimal,p,q);
+
+   end;
+
+

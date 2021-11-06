@@ -1,0 +1,30 @@
+nester:
+
+   proc options (main);
+
+   dcl space       char(10);
+   dcl argy        bin(15);
+
+   call junior (argy);
+
+   stop;
+
+
+
+junior:
+
+   procedure (value);
+
+   dcl value       bin(15);
+
+   value = 0;
+
+   end;
+
+end;
+
+
+
+   
+   
+

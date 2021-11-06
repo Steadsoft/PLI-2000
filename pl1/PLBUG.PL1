@@ -1,0 +1,15 @@
+outer:
+
+   proc;
+
+inner:
+
+   proc;
+
+   goto hell;
+
+   end inner;
+
+end outer;
+
+

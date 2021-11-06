@@ -1,0 +1,28 @@
+subspeed:
+
+   proc options (main);
+
+   dcl matrix (10000)      bin (15);
+   dcl (I,J)               bin (15);
+
+   do J = 1 to 100 ;
+
+   do I = 1 to 10000;
+
+      matrix(I) = 0;
+      matrix(I) = 0;
+      matrix(I) = 0;
+      matrix(I) = 0;
+      matrix(I) = 0;
+      matrix(I) = 0;
+      matrix(I) = 0;
+      matrix(I) = 0;
+      matrix(I) = 0;
+
+   end; 
+
+   end;
+
+end;
+
+

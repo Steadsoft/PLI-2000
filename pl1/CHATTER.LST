@@ -1,0 +1,69 @@
+Win32 (NT/95) dates, times, version-no's etc not yet ported.
+Please update LIST.C to remove this msg etc.
+OPTIONS: +listing +code +system 
+
+        1  chatter:
+        2  
+        3     procedure;
+        4  
+        5     dcl s           bin(15);
+        6  
+        7     s = 1;
+        8  
+        9     put skip (s) list ('My name is chatter, and ive just been called.');
+       10  
+       11     end chatter;
+       12  
+
+ATTRIBUTES AND CROSS REFERENCE TABLE
+
+PROCEDURE chatter ON LINE 3                                                                        
+
+NAME            CLASS     SIZE         OFX   ATTRIBUTES
+
+s               automatic 2            0004  bin(15,0) internal fixed dcl 5                        
+
+
+LENGTH OF STACK FRAMES:
+
+BLOCK NAME                        LINE No     STACK
+
+chatter                              3            6                                                         
+
+ASSEMBLY LISTING OF CODE GENERATED FOR Pentium Processor.
+
+
+    LINE         3              /* Prolog Sequence */
+
+    00000000  C8 060000         ENTER    60
+    00000004  89 4DFA           MOV      DWORD_PTR [EBP-6],ECX
+
+    LINE         7
+
+    00000007  B8 01000000       MOV      EAX,1
+    0000000C  89 45FE           MOV      DWORD_PTR [EBP-2],EAX      s
+
+    LINE        11              /* Epilog Sequence */
+
+    0000000F  C9                LEAVE    
+    00000010  C3                RET      
+
+
+COPYRIGHT Hugh Moran 2006
+COMPILATION STATISTICS FOR PL/I Release 4.0.0.a CHATTER.PL1
+
+PHASE          MSECS      ERRORS    WARNINGS        DISK
+initialize         0           0           0           0
+syntax             0           0           0           1
+declare            0           0           0           0
+semantic           0           0           0           0
+allocator          0           0           0           0
+translate          0           0           0           0
+totals             0           0           0           1
+
+SOURCE STMTS 5
+SYMBOL TABLE 551
+CODE SIZE    17
+STATIC SIZE  47
+LINES/SECOND 12000
+STMTS/SECOND 5000

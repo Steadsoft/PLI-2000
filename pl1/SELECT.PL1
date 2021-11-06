@@ -1,0 +1,95 @@
+select:
+
+        proc;
+
+        dcl a                           bin   (15);
+        dcl s                           char  (1);
+        dcl dos_record                  char  (512);
+        dcl honest                      bit   (1);
+        dcl s_vos                       entry;
+        dcl master                      bin (15);
+        dcl s_master                    entry;
+        dcl I                           char (55) var;
+        dcl b                           fixed dec (9,3);
+        dcl (root,div,load)             fixed dec (10);
+
+        /************************************************************/
+        /* This file is for testing the PL/1 select syntax checking */
+        /************************************************************/
+
+        select;  /* Type 1, NO expression */
+
+        when (a > 20)
+             a = 20;
+        when (2)
+             do;
+             a = 30;
+             select;
+                 
+             when(34)
+                 do;       /* the missing ; gives erroneous error msg */
+                 call s_master;
+                 begin;
+                   if 123 then
+                      do;
+                      a = 2;
+                      b = 3;
+                      end;          
+                 end; /* begin */
+                 end; /* do */
+             other ;  
+             end; /* select */
+             return;
+             end; /* do */
+        otherwise
+             do I = 1 to 100;
+                if s then
+                   a = 4;
+             end;
+
+        end;  /* select */
+
+        /*****************************************************/
+        /* This select is type 2, an arbitrary expression is */
+        /* allowed within the select clause.                 */
+        /*****************************************************/   
+
+        select ((master / load) + 23.5 - (root / div));  /* Type 2 EXPRESSION */
+
+        when (1)
+             a = 20;
+        when (2)
+             do;
+             a = 30;
+             select;
+                 
+             when(34)
+                 do;      /* the missing ; gives erroneous error msg */
+                 call s_master;
+                 begin;
+                   if 123 then
+                      do;
+                      a = 2;
+                      b = 3;
+                      end;          
+                 end; /* begin */
+                 end; /* do */
+             other ;  
+             end; /* select */
+             return;
+             end; /* do */
+        otherwise
+             do I = 1 to 100;
+                if s then
+                   a = 4;
+             end;
+
+        end;  /* select */
+
+ 
+
+        call s_vos;
+
+end;
+                
+

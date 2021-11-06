@@ -1,0 +1,80 @@
+keywords:
+
+        /*********************************************************/
+        /* This source file verifies that the compiler does not  */
+        /* treat any keywords as reserved.                       */
+        /*********************************************************/
+
+         proc;
+
+        % replace DEATH_MESSAGE         by 'O Dear Im Dying !';
+
+        dcl dcl                 bin(15);
+        dcl call(12)            entry;
+        dcl free                char(10) based;
+        dcl allocate            ptr;
+        dcl if                  dec(8,5);
+        dcl then                bin(31);
+        dcl else                dec(7,2);
+        dcl while (2)           bin(31);
+        dcl (a,b)               bit(1);
+        dcl to                  dec(7);
+        dcl do                  dec(7);
+        dcl end                 char(65) var;
+
+        /***************************************/
+        /*    Code starts right about here !   */
+        /***************************************/
+  /*
+        on fixedoverflow
+           begin;
+           goto abort_mission;
+           end;  */
+
+        dcl = 2;
+
+        call call(dcl);
+
+        allocate free set (allocate);
+
+        if if = then then
+           else = if - then;
+        else
+           then = if - else;
+   
+label:
+        procedure (a,b) = 1;
+
+        do while(a = b) = to to end;
+
+           end = while (a = b); 
+
+           call procedure (33);
+
+        end; 
+
+procedure: 
+
+        procedure (procedure);
+
+        dcl procedure           bin(15); 
+
+        do; while (a) = 1;
+
+        end;
+
+        do do = to to to;
+
+        end;
+
+
+        end;
+
+
+abort_mission:
+
+        put skip(0) list (DEATH_MESSAGE);
+        
+        end;
+
+

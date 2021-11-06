@@ -1,0 +1,99 @@
+cloak: proc;
+
+dcl status fixed bin (15);
+dcl me char (8) var  static /* init ('cloak') */  ;
+dcl udp ptr;
+dcl 1 update_data /* based (udp) */  ,
+    2 pte_ptr ptr,
+    2 pdr_ptr ptr,
+    2 new_group_id char (32) var,
+    2 new_person_id char (32) var;
+
+/* dcl 1 ud like update_data;  */
+
+dcl s$error entry /* (fixed bin (15), char (*) var, char (*) var) */ ;
+dcl s$get_pdrp entry /* (ptr) */;
+dcl s$kernel_mode_call entry /* (entry (ptr, fixed bin (15)), 
+                                 ptr, 
+                                 fixed bin (15))*/ ;
+dcl s$parse_command entry /* (char (*) var, fixed bin (15),
+          char (*) var, char (*) var,
+          char (*) var, char (*) var,
+          char (*) var)*/;
+
+%include 'process_data_region';
+%include 'process_table_entry';
+
+     call s$get_pdrp (pdrp);
+     ptep = pdr.pte_ptr;
+
+     udp = addr (ud);
+     update_data.pte_ptr = ptep;
+     update_data.pdr_ptr = pdrp;
+     update_data.new_person_id = pte.person_name;
+     update_data.new_group_id = pte.group_name;
+
+     call s$parse_command (me, status,
+                           'user_name:string,req,value',
+                           update_data.new_person_id,
+                           'group_name:string,req,value',
+                           update_data.new_group_id,
+                           'end');
+     if status ^= 0 then return;
+
+     /****************************************************************/
+     /*                 OK Now lets get privileged                   */
+     /****************************************************************/
+
+     call s$kernel_mode_call (update_pte_pdr, 
+                              udp, 
+                              status);
+
+     if status ^= 0 then do;
+          call s$error (status, me, 'Updating pte.');
+          return;
+          end;
+
+end merlin;
+%page;
+
+/***************************************************************************/
+/*            This routine gets called by VOS in Kernel mode !             */
+/***************************************************************************/
+
+update_pte_pdr: 
+
+procedure (arg_udp, arg_status);
+
+
+dcl arg_status fixed bin (15);
+dcl arg_udp ptr;
+
+dcl udp ptr;
+dcl 1 update_data based (udp),
+    2 pte_ptr ptr,
+    2 pdr_ptr ptr,
+    2 new_group_id char (32) var,
+    2 new_person_id char (32) var;
+
+%nolist;
+%include 'process_data_region';
+%include 'process_table_entry';
+%list;
+
+     udp = arg_udp;
+     ptep = update_data.pte_ptr;
+     pdrp = update_data.pdr_ptr;
+
+     pte.person_name = update_data.new_person_id;
+     pte.group_name = update_data.new_group_id;
+
+     pdr.client_info.person_name = update_data.new_person_id;
+     pdr.client_info.group_name = update_data.new_group_id;
+
+     arg_status = 0;
+
+     return;
+
+end update_pte_pdr;
+

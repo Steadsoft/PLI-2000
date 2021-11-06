@@ -1,0 +1,38 @@
+outer:
+
+   proc options (main);
+
+   dcl var1        bin(15) automatic;
+   dcl var2        bin(15) static;
+
+   var1 = 0;
+   var2 = 0;
+
+   call inner;
+
+inner:
+   
+   proc;
+
+   var1 = 0;
+   var2 = 0;
+
+   call very_inner;
+
+
+very_inner:
+
+   proc;
+
+   var1 = 0;
+   var2 = 0;
+
+   end;
+
+   end;
+
+end;
+
+
+   
+

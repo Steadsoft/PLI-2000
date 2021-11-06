@@ -1,0 +1,100 @@
+ify:
+
+   proc options (main);
+
+   dcl (a,b,c,d,e)         bin(15);
+   dcl s                   bin(15);
+
+   s = 1;
+
+   put skip (s) list ('Start of "if" test number 1.');
+
+   call set_conditions_false;
+
+   call test_conditions;
+
+   call set_conditions_true;
+
+   call test_conditions;
+
+   put skip (s) list ('End of "if" test number 1.');
+
+test_conditions:
+
+   procedure;
+
+   if a = b then
+      do;
+      put skip (s) list ('A = B');
+      end;
+   else
+      do;
+      put skip (s) list ('A ^= B');
+      end;
+
+   if a ^= c then
+      do;
+      put skip (s) list ('A ^= C');
+      end;
+   else
+      do;
+      put skip (s) list ('A = C');
+      end;
+ 
+   if a > d then
+      do;
+      put skip (s) list ('A > D'); 
+      end;
+   else
+      do;
+      put skip (s) list ('A ^> D'); 
+      end;
+  
+   if a < e then
+      do;
+      put skip (s) list ('A < E'); 
+      end;
+   else
+      do;
+      put skip (s) list ('A ^< E'); 
+      end;
+ 
+   end;
+
+set_conditions_true:
+
+   procedure;
+
+   put skip (s) list ('Setting conditions true.');
+
+   a = 1; b = 1;
+
+   c = 2;
+
+   d = 0;
+
+   e = 3;
+
+   end;
+
+set_conditions_false:
+
+   procedure;
+
+   put skip (s) list ('Setting conditions false.');
+
+   a = 1; b = 0;
+
+   c = 1;
+
+   d = 2;
+
+   e = 0;
+
+   end;
+
+
+end ify;
+
+
+

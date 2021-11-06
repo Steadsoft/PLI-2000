@@ -1,0 +1,23 @@
+if1:
+
+   proc options (main);
+
+   dcl (a,b,c,d)       bin(15);
+
+   a = 1;
+   b = 2;
+   c = 1;
+
+   if a ^= b then
+      do;
+      put skip (a) list ('A ^= B');
+      end;
+
+   if a = c then
+      do;
+      put skip (a) list ('A = C');
+      end;
+
+end;
+    
+

@@ -1,0 +1,13 @@
+decy:
+
+   proc;
+
+   dcl a       bin(15);
+   dcl (b,c)   dec(5);
+
+
+   a = a + c;
+
+   end;
+
+

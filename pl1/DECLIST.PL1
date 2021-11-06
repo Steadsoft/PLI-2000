@@ -1,0 +1,28 @@
+declist:
+
+   proc;
+/*
+   dcl charlie         char(32) var,
+       master          char(32) var,
+       (a,b,c)         bin(15);
+  */
+
+
+
+
+   dcl 1 struc, 
+         2 in     bin(31),
+         2 on     bin(31),
+/*
+       dir         ptr;
+
+*/
+
+
+
+       1 struc2,
+         2 in      char(9),
+         2 on      ptr;  
+  
+   end;
+

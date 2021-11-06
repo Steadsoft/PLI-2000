@@ -1,0 +1,43 @@
+mtrim:
+
+     procedure (instr,
+                otstr,
+                sentinel,
+                start);
+
+     dcl instr                char(*) var;
+     dcl otstr                char(*) var;
+     dcl start                bin(15);
+     dcl sentinel             char(1);
+
+     dcl 1 in_mask              /* def (instr) */,
+           2 len                bin(15),
+           2 bytes (4096)       char(1);                   
+          
+     dcl 1 ot_mask              /* def (otstr) */,
+           2 len                bin(15),
+           2 bytes (4096)       char(1); 
+
+     dcl J                      bin(15);
+     dcl K                      bin(15);
+
+     K = 0;
+
+     do J = start to length(instr);
+
+        if in_mask.bytes(J) ^= sentinel then
+           do;
+           K = K + 1;
+           ot_mask.bytes(K) = in_mask.bytes(J);
+           end;
+
+     end;
+
+     ot_mask.len = K;
+     start = K;
+
+     end;
+
+          
+     
+

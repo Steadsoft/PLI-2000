@@ -1,0 +1,183 @@
+mouse:
+
+    procedure options (main);
+
+/****************************************************************************/
+/*                           COPYRIGHT NOTICE                               */
+/****************************************************************************/
+/* Vulkan CONFIDENTIAL INFORMATION:                           Category:  1  */
+/* COPYRIGHT (c) 1990 Vulkan Technologies Ltd.                              */
+/*                                                                          */
+/* This data file contains confidential and proprietary information of      */
+/* Vulkan Technologies Ltd, and any reproduction, disclosure, or other use  */
+/* in whole or in part, is hereby expressly prohibited.                     */
+/*                                                                          */
+/* This restriction applies unless, prior written agreement or prior        */
+/* written permission has been given by Vulkan Technologies Ltd.            */
+/*                                                                          */
+/* Unlawful use of this material shall render the using party liable to     */
+/* prosecution.                                                             */
+/*                                                                          */
+/****************************************************************************/
+
+/****************************************************************************/
+/*                          Functional Description                          */
+/****************************************************************************/
+/* This program demonstrates some of the common mouse services calls.       */
+/*                                                                          */
+/****************************************************************************/
+
+/****************************************************************************/
+/*                   R E P L A C E     S T A T E M E N T S                  */
+/****************************************************************************/
+
+   % replace MY_NAME by    '                    Hello my name is: mouse.pl1';
+   % replace LEFT    by 1;
+   % replace RIGHT   by 2;
+   % replace BOTH    by 3;
+
+/****************************************************************************/
+/*                      I N C L U D E     F I L E S                         */
+/****************************************************************************/
+
+   % include 'dos';
+   
+   % include 'graphics';
+
+/****************************************************************************/
+/*                        D O S    E N T R I E S                            */
+/****************************************************************************/
+
+/****************************************************************************/
+/*                       U S E R    E N T R I E S                           */
+/****************************************************************************/
+
+/****************************************************************************/
+/*                    E X T E R N A L    V A R I A B L E S                  */
+/****************************************************************************/
+
+/****************************************************************************/
+/*                      S T A T I C     V A R I A B L E S                   */
+/****************************************************************************/
+
+   dcl 1 mouse_stuff       static,      /* this is a PL/I structure */
+         2 button_status   bin(15),
+         2 x_coord         bin(15),
+         2 y_coord         bin(15);
+
+/****************************************************************************/
+/*                     A U T O M A T I C    V A R I A B L E S               */
+/****************************************************************************/
+
+   dcl stack               char(256);
+   dcl status              bin(15);
+   dcl count               bin(15);
+   dcl I                   bin(15);
+   dcl skips               bin(15);
+   dcl two                 bin(15);
+   dcl mode                bin(15);
+   dcl (cols,prev_mode,page) bin(15);
+   dcl (x,y)               bin(15);
+
+/****************************************************************************/
+/*           S T A R T   O F   E X E C U T A B L E    C O D E               */
+/****************************************************************************/
+
+    skips = 0;
+
+    put skip (skips) list ('Initialising mouse driver, please wait.');
+ 
+    call dos$reset_mouse (status);
+
+    if status ^= 0 then 
+       do;
+       put skip (skips) list ('mouse: No mouse driver has been installed.');
+       stop; 
+       end;
+    else
+       do;
+       call dos$get_video_info (cols,prev_mode,page); /* save current mode */
+       mode = GFX_640x350_16;
+       call dos$set_video_mode (mode);
+       skips = 1;
+       two = 2;
+       call dos$clear_screen;
+       put  list (MY_NAME);
+       put  skip (skips) list ('           This is a demonstration of some of the mouse');
+       put  skip (skips) list ('           subroutines supplied with the PC-PL/I system.'); 
+       put  skip (two)   list ('           Try moving the mouse about and pressing switches.');
+       end;
+
+    call dos$show_mouse;
+
+    x_coord = 0;
+    y_coord = 0;
+
+    /*******************************************************************/
+    /* Simply move the mouse pointer down the screen from the top left */
+    /* corner to the bottom right !                                    */
+    /*******************************************************************/
+
+    do I = 1 to 350 ;
+
+       do count = 0 to 5000; /* Chew time */
+
+       end;
+
+       /* the next two lines show the flexibility allowed when */
+       /* reffering to PL/I structures.                        */
+
+       x_coord             = x_coord + 2;
+       mouse_stuff.y_coord = mouse_stuff.y_coord + 1;
+
+       /* Move the mouse around a bit */
+
+       call dos$set_mouse_position (x_coord,y_coord); /* call kernel */
+
+       call dos$get_mouse_status (status,x,y); /* trap in */
+
+       /****************************************************************/
+       /* The status indicates which buttons are currently pressed .   */
+       /* It is actually a bit-map, so for simplicity we examine as    */
+       /* follows:                                                     */ 
+       /****************************************************************/
+
+       if status = BOTH then
+          do;
+          x = 5; y = 5;
+          call dos$set_cursor (page,y,x);
+          put skip (skips) list ('Both were pressed.');
+          end;
+ 
+       if status = RIGHT then
+          do;
+          x = 5; y = 5;
+          call dos$set_cursor (page,y,x);
+          put skip (skips) list ('Right was pressed.');
+          end;
+ 
+       if status = LEFT then
+          do;
+          x = 5; y = 5;
+          call dos$set_cursor (page,y,x);
+          put skip (skips) list ('Left was pressed. ');
+          end;
+
+    end;
+
+    call dos$hide_mouse;
+
+    skips = skips + 1;
+
+    put skip(skips) list ('Well, thats all folks !');
+
+    do count = 0 to 20000; /* Chew time */
+
+    end;
+
+    call dos$set_video_mode (prev_mode);
+
+    end;
+
+
+

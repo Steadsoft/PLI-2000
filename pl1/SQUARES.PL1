@@ -1,0 +1,164 @@
+squares:
+
+   proc options (main);  /* this will get control from DOS */
+
+/****************************************************************************/
+/*                           COPYRIGHT NOTICE                               */
+/****************************************************************************/
+/* Vulkan CONFIDENTIAL INFORMATION:                           Category:  2  */
+/* COPYRIGHT (c) 1990 Vulkan Technologies Ltd.                              */
+/*                                                                          */
+/* This data file contains confidential and proprietary information of      */
+/* Vulkan Technologies Ltd, and any reproduction, disclosure, or other use  */
+/* in whole or in part, is hereby expressly prohibited.                     */
+/*                                                                          */
+/* This restriction applies unless, prior written agreement or prior        */
+/* written permission has been given by Vulkan Technologies Ltd.            */
+/*                                                                          */
+/* Unlawful use of this material shall render the using party liable to     */
+/* prosecution.                                                             */
+/*                                                                          */
+/****************************************************************************/
+
+/****************************************************************************/
+/* This simple program demonstrates/tests some of the runtime library calls */
+/* that pertain to the graphics system on a PC. This particular example has */
+/* been written for EGA.                                                    */
+/****************************************************************************/ 
+
+/****************************************************************************/
+/* The runtime library does not yet have any real graphics calls, such as   */
+/* line drawing and the like. Consequently this program draws lines by just */
+/* plotting pixels, this is very slow, and is only done as a means of       */
+/* testing the compilers ability to produce correct code. A production      */
+/* implementation will of course have optimised graphics subroutines.       */
+/****************************************************************************/
+
+   % include 'graphics';   /* Graphics constants    */
+   % include 'dos';        /* DOS/BIOS system calls */
+
+   /* the following variables default to automatic (stack) */
+
+   dcl mode                bin(15); 
+   dcl prev_mode           bin(15);
+   dcl pixel               bin(15);
+   dcl I                   bin(15);
+   dcl page                bin(15);
+
+   /* these however are static */
+
+   dcl cols                bin(15) static;
+   dcl (x,y,J)             bin(15) static;
+   dcl border              bin(15) static;
+   dcl black               bin(15) static;
+   dcl shade               bin(15) static;
+   dcl skips               bin(15) static;
+
+   /******************************************************************/
+   /* Retreive the current video mode from the system and save it.   */
+   /******************************************************************/ 
+
+   page = 0;
+
+   /* remember all vars are passed by ref so prev_mode gets set */
+   /* by the called module.                                     */
+
+   call dos$get_video_info (cols,prev_mode,page); /* save current mode */
+
+   /*****************************************************************/
+   /*            Put the adapter into EGA 640x350 mode.             */
+   /*****************************************************************/
+   
+   mode = GFX_640x350_16;    /* Alter this if you want VGA etc */
+
+   call dos$set_video_mode (mode);  /* put into EGA 640x320 mode */
+
+   call dos$show_mouse;
+
+   skips = 1;
+
+   put skip (skips) list ('            Crude demo of some DOS Graphics support');
+
+   put list (' subroutines.');
+
+   /*********************************************************************/
+   /* OK Draw a square, by drawing four lines. Draw a line by plotting  */
+   /* pixels.                                                           */
+   /*********************************************************************/
+
+   black = 0;
+   shade = 4;
+
+   do x = 1 to 300 by 5;
+
+      call draw_square (shade,x);
+
+      call draw_square (black,x);
+  
+   end;   
+
+   /*************************************************************************/
+   /* OK Now that we have finished, we will set the adapter to its old mode */
+   /*************************************************************************/
+
+   do I = 1 to 50;    /* delay a little */
+       
+      do J = 1 to 5000;
+
+      end;
+
+   end;
+
+   call dos$set_video_mode (prev_mode);
+
+/***************************************************************************/
+/*          This procedure will draw a square on the display.              */
+/***************************************************************************/
+
+draw_square:
+
+   proc (color,disp);
+
+   dcl color       bin(15);
+   dcl disp        bin(15);
+
+   pixel = color;
+
+   I = 100 + disp;
+
+   do J = 100 to 200;
+
+      call dos$set_pixel (pixel,page,I,J); /* set a pixel on */
+
+   end;
+  
+   I = 200 + disp;
+
+   do J = 100 to 200;
+
+      call dos$set_pixel (pixel,page,I,J); /* set a pixel on */
+
+   end;
+
+   J = 100 ;
+
+   do I = 100 +disp to 200 + disp;
+
+      call dos$set_pixel (pixel,page,I,J); /* set a pixel on */
+
+   end;
+
+   J = 200 ;
+
+   do I = 100 + disp to 200 + disp;
+
+      call dos$set_pixel (pixel,page,I,J); /* set a pixel on */
+
+   end;
+
+   end draw_square;
+
+end squares; /* note the label here is optional in PL/I */
+
+
+

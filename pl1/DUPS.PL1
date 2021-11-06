@@ -1,0 +1,10 @@
+dups:
+
+   proc;
+
+   dcl (a,b,c)         bin(15);
+   dcl (a,b,c,d)       bin(15);
+
+   end;
+
+

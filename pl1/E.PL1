@@ -1,0 +1,46 @@
+e:
+    procedure;
+                            
+    dcl 1 s_counters        static,
+          2 counter         bin(15),
+          2 start           bin(15),
+          2 stop            bin(15);    
+
+    dcl 1 a_counters,
+          2 counter         bin(15),
+          2 start           bin(15),
+          2 stop            bin(15);    
+
+    dcl counter             bin(15);
+
+    /*******************************************/
+    /*     Initialise a few bits & pieces.     */
+    /*******************************************/
+
+    s_counters.start = 0;
+    s_counters.stop  = 10000;
+    a_counters.start = 0;
+    a_counters.stop  = 10000;
+
+    /*******************************************/
+    /* Loop, and use static control variables. */
+    /*******************************************/
+
+    do counter = s_counters.start to s_counters.stop;
+
+       /* do nothing useful */
+
+    end;
+
+    /**********************************************/
+    /* Loop, and use automatic control variables. */
+    /**********************************************/
+
+    do counter = a_counters.start to a_counters.stop;
+
+       /* do nothing useful */
+
+    end;
+
+end e;
+

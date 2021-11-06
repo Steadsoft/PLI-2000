@@ -1,0 +1,31 @@
+if2:
+
+   proc options (main);
+
+   dcl (s,a,b,c)     bin(15);
+
+   a = 1;
+   b = 2;
+   c = 1;
+   s = 1;
+
+   call inner;
+
+inner:
+
+   proc;         
+
+   if a = b then
+      do;
+      put skip (s) list ('Then executed.');
+      end;
+   else
+      do;
+      put skip (s) list ('Else executed.');
+      end;
+
+   end;  
+ 
+end;
+           
+

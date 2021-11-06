@@ -1,0 +1,737 @@
+Compiling ALLOCATE.C:
+Warning ALLOCATE.C 243: No declaration for function 'strcpy'
+Warning ALLOCATE.C 243: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 246: No declaration for function 'strcat'
+Warning ALLOCATE.C 246: Call to function 'strcat' with no prototype
+Warning ALLOCATE.C 247: Call to function 'strcat' with no prototype
+Warning ALLOCATE.C 248: No declaration for function 'strlen'
+Warning ALLOCATE.C 248: Call to function 'strlen' with no prototype
+Warning ALLOCATE.C 250: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 256: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 259: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 260: Call to function 'strcat' with no prototype
+Warning ALLOCATE.C 261: Call to function 'strlen' with no prototype
+Warning ALLOCATE.C 263: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 314: Conversion may lose significant digits
+Warning ALLOCATE.C 384: Conversion may lose significant digits
+Warning ALLOCATE.C 436: 's_ptr' is declared but never used
+Warning ALLOCATE.C 436: 'offset_ptr' is declared but never used
+Warning ALLOCATE.C 436: 'offset' is declared but never used
+Warning ALLOCATE.C 436: 'remaining' is declared but never used
+Warning ALLOCATE.C 506: Conversion may lose significant digits
+Warning ALLOCATE.C 533: Conversion may lose significant digits
+Warning ALLOCATE.C 552: Conversion may lose significant digits
+Warning ALLOCATE.C 578: Conversion may lose significant digits
+Warning ALLOCATE.C 594: Conversion may lose significant digits
+Warning ALLOCATE.C 662: No declaration for function 'strlen'
+Warning ALLOCATE.C 662: Call to function 'strlen' with no prototype
+Warning ALLOCATE.C 664: No declaration for function 'strcpy'
+Warning ALLOCATE.C 664: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 665: No declaration for function 'strcat'
+Warning ALLOCATE.C 665: Call to function 'strcat' with no prototype
+Warning ALLOCATE.C 676: Call to function 'strlen' with no prototype
+Warning ALLOCATE.C 678: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 679: Call to function 'strcat' with no prototype
+Warning ALLOCATE.C 699: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 718: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 751: No declaration for function 'strlen'
+Warning ALLOCATE.C 751: Call to function 'strlen' with no prototype
+Warning ALLOCATE.C 753: No declaration for function 'strcpy'
+Warning ALLOCATE.C 753: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 754: No declaration for function 'strcat'
+Warning ALLOCATE.C 754: Call to function 'strcat' with no prototype
+Warning ALLOCATE.C 763: Call to function 'strlen' with no prototype
+Warning ALLOCATE.C 765: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 766: Call to function 'strcat' with no prototype
+Warning ALLOCATE.C 777: Call to function 'strlen' with no prototype
+Warning ALLOCATE.C 779: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 799: No declaration for function 'strupr'
+Warning ALLOCATE.C 799: Call to function 'strupr' with no prototype
+Warning ALLOCATE.C 800: No declaration for function 'strcspn'
+Warning ALLOCATE.C 800: Call to function 'strcspn' with no prototype
+Warning ALLOCATE.C 801: No declaration for function 'strcpy'
+Warning ALLOCATE.C 801: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 803: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 804: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 805: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 838: No declaration for function 'strcpy'
+Warning ALLOCATE.C 838: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 839: No declaration for function 'strlen'
+Warning ALLOCATE.C 839: Call to function 'strlen' with no prototype
+Warning ALLOCATE.C 851: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 852: Call to function 'strlen' with no prototype
+Warning ALLOCATE.C 863: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 864: Call to function 'strlen' with no prototype
+Warning ALLOCATE.C 886: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 889: No declaration for function 'strcat'
+Warning ALLOCATE.C 889: Call to function 'strcat' with no prototype
+Warning ALLOCATE.C 890: Call to function 'strlen' with no prototype
+Warning ALLOCATE.C 892: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 1040: No declaration for function 'strchr'
+Warning ALLOCATE.C 1040: Call to function 'strchr' with no prototype
+Warning ALLOCATE.C 1044: No declaration for function 'strcpy'
+Warning ALLOCATE.C 1044: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 1066: No declaration for function 'strlen'
+Warning ALLOCATE.C 1066: Call to function 'strlen' with no prototype
+Warning ALLOCATE.C 1132: Conversion may lose significant digits
+Warning ALLOCATE.C 1136: No declaration for function 'strcpy'
+Warning ALLOCATE.C 1136: Call to function 'strcpy' with no prototype
+Warning ALLOCATE.C 1150: 'length' is declared but never used
+Compiling CODEGEN.C:
+Warning CODEGEN.C 360: Conversion may lose significant digits
+Warning CODEGEN.C 367: Conversion may lose significant digits
+Warning CODEGEN.C 413: 'num' is declared but never used
+Warning CODEGEN.C 413: 'lab' is declared but never used
+Warning CODEGEN.C 413: 'depth' is declared but never used
+Warning CODEGEN.C 413: 'stack' is declared but never used
+Warning CODEGEN.C 1334: 'next' is declared but never used
+Warning CODEGEN.C 1424: Conversion may lose significant digits
+Warning CODEGEN.C 1535: 'ptr' is declared but never used
+Warning CODEGEN.C 1717: 'frame_posn' is declared but never used
+Warning CODEGEN.C 1717: 'target_posn' is declared but never used
+Warning CODEGEN.C 1717: 'fn_ptr' is declared but never used
+Warning CODEGEN.C 1717: 'st_ptr' is declared but never used
+Warning CODEGEN.C 1743: 'ptr' is declared but never used
+Warning CODEGEN.C 1767: 'ptr' is declared but never used
+Warning CODEGEN.C 1786: 'ptr' is declared but never used
+Warning CODEGEN.C 1804: 'ptr' is declared but never used
+Warning CODEGEN.C 1824: 'ptr' is declared but never used
+Warning CODEGEN.C 1843: 'ptr' is declared but never used
+Warning CODEGEN.C 1861: 'ptr' is declared but never used
+Warning CODEGEN.C 1962: 'nt' is declared but never used
+Warning CODEGEN.C 2041: 'sub_cnt' is declared but never used
+Warning CODEGEN.C 2041: 'ptr_ptr' is declared but never used
+Warning CODEGEN.C 2041: 'dt_ptr' is declared but never used
+Warning CODEGEN.C 2041: 'sb_ptr' is declared but never used
+Warning CODEGEN.C 2041: 'tp' is declared but never used
+Warning CODEGEN.C 2217: Conversion may lose significant digits
+Warning CODEGEN.C 2243: Conversion may lose significant digits
+Warning CODEGEN.C 2284: No declaration for function 'load_ofx'
+Warning CODEGEN.C 2284: Call to function 'load_ofx' with no prototype
+Warning CODEGEN.C 2305: Call to function 'load_ofx' with no prototype
+Warning CODEGEN.C 2321: Conversion may lose significant digits
+Warning CODEGEN.C 2328: Conversion may lose significant digits
+Warning CODEGEN.C 2370: Call to function 'load_ofx' with no prototype
+Warning CODEGEN.C 2384: Call to function 'load_ofx' with no prototype
+Warning CODEGEN.C 2400: Conversion may lose significant digits
+Warning CODEGEN.C 2407: Conversion may lose significant digits
+Warning CODEGEN.C 2449: Conversion may lose significant digits
+Warning CODEGEN.C 2452: Conversion may lose significant digits
+Warning CODEGEN.C 2463: Conversion may lose significant digits
+Warning CODEGEN.C 2593: Call to function 'identical' with no prototype
+Warning CODEGEN.C 2594: Call to function 'identical' with no prototype
+Warning CODEGEN.C 2595: Call to function 'identical' with no prototype
+Warning CODEGEN.C 2596: Call to function 'identical' with no prototype
+Warning CODEGEN.C 2597: Call to function 'identical' with no prototype
+Warning CODEGEN.C 2598: Call to function 'identical' with no prototype
+Warning CODEGEN.C 2631: Call to function 'identical' with no prototype
+Warning CODEGEN.C 2641: Call to function 'identical' with no prototype
+Warning CODEGEN.C 2652: 'x2_ptr' is declared but never used
+Warning CODEGEN.C 2652: 'x1_ptr' is declared but never used
+Compiling DECLARE.C:
+Warning DECLARE.C 222: No declaration for function 'strcpy'
+Warning DECLARE.C 222: Call to function 'strcpy' with no prototype
+Warning DECLARE.C 223: Call to function 'strcpy' with no prototype
+Warning DECLARE.C 225: Call to function 'strcpy' with no prototype
+Warning DECLARE.C 263: Call to function 'strcpy' with no prototype
+Warning DECLARE.C 264: Call to function 'strcpy' with no prototype
+Warning DECLARE.C 266: Call to function 'strcpy' with no prototype
+Warning DECLARE.C 338: Conversion may lose significant digits
+Warning DECLARE.C 360: 'inner_ptr' is declared but never used
+Warning DECLARE.C 472: Conversion may lose significant digits
+Warning DECLARE.C 484: Conversion may lose significant digits
+Warning DECLARE.C 504: Conversion may lose significant digits
+Warning DECLARE.C 515: Conversion may lose significant digits
+Warning DECLARE.C 519: 'stepper' is declared but never used
+Warning DECLARE.C 709: No declaration for function 'strncmp'
+Warning DECLARE.C 709: Call to function 'strncmp' with no prototype
+Warning DECLARE.C 715: Call to function 'strncmp' with no prototype
+Warning DECLARE.C 721: Call to function 'strncmp' with no prototype
+Warning DECLARE.C 727: Call to function 'strncmp' with no prototype
+Warning DECLARE.C 733: Call to function 'strncmp' with no prototype
+Warning DECLARE.C 739: Call to function 'strncmp' with no prototype
+Warning DECLARE.C 745: Call to function 'strncmp' with no prototype
+Compiling DT.C:
+Warning DT.C 285: No declaration for function 'printf'
+Warning DT.C 285: Call to function 'printf' with no prototype
+Warning DT.C 286: Call to function 'printf' with no prototype
+Warning DT.C 287: Call to function 'printf' with no prototype
+Warning DT.C 288: Call to function 'printf' with no prototype
+Warning DT.C 289: Call to function 'printf' with no prototype
+Warning DT.C 290: Call to function 'printf' with no prototype
+Warning DT.C 291: Call to function 'printf' with no prototype
+Warning DT.C 292: Call to function 'printf' with no prototype
+Warning DT.C 293: Call to function 'printf' with no prototype
+Warning DT.C 294: Call to function 'printf' with no prototype
+Warning DT.C 295: Call to function 'printf' with no prototype
+Warning DT.C 296: Call to function 'printf' with no prototype
+Warning DT.C 297: Call to function 'printf' with no prototype
+Warning DT.C 298: Call to function 'printf' with no prototype
+Warning DT.C 304: Call to function 'printf' with no prototype
+Warning DT.C 306: Call to function 'printf' with no prototype
+Warning DT.C 309: Call to function 'printf' with no prototype
+Warning DT.C 311: Call to function 'printf' with no prototype
+Warning DT.C 313: Call to function 'printf' with no prototype
+Warning DT.C 315: Call to function 'printf' with no prototype
+Warning DT.C 316: Call to function 'printf' with no prototype
+Warning DT.C 317: Call to function 'printf' with no prototype
+Warning DT.C 320: Call to function 'printf' with no prototype
+Warning DT.C 323: Call to function 'printf' with no prototype
+Warning DT.C 330: 's_ptr' is declared but never used
+Warning DT.C 346: No declaration for function 'printf'
+Warning DT.C 346: Call to function 'printf' with no prototype
+Warning DT.C 347: Call to function 'printf' with no prototype
+Warning DT.C 351: Call to function 'printf' with no prototype
+Warning DT.C 354: Call to function 'printf' with no prototype
+Warning DT.C 388: No declaration for function 'printf'
+Warning DT.C 388: Call to function 'printf' with no prototype
+Warning DT.C 391: Call to function 'printf' with no prototype
+Warning DT.C 393: Call to function 'printf' with no prototype
+Warning DT.C 395: Call to function 'printf' with no prototype
+Warning DT.C 397: Call to function 'printf' with no prototype
+Warning DT.C 399: Call to function 'printf' with no prototype
+Warning DT.C 401: Call to function 'printf' with no prototype
+Warning DT.C 403: Call to function 'printf' with no prototype
+Warning DT.C 405: Call to function 'printf' with no prototype
+Warning DT.C 407: Call to function 'printf' with no prototype
+Warning DT.C 444: No declaration for function 'printf'
+Warning DT.C 444: Call to function 'printf' with no prototype
+Warning DT.C 447: Call to function 'printf' with no prototype
+Warning DT.C 449: Call to function 'printf' with no prototype
+Warning DT.C 452: Call to function 'printf' with no prototype
+Warning DT.C 454: Call to function 'printf' with no prototype
+Warning DT.C 457: Call to function 'printf' with no prototype
+Warning DT.C 459: Call to function 'printf' with no prototype
+Warning DT.C 461: Call to function 'printf' with no prototype
+Warning DT.C 492: No declaration for function 'printf'
+Warning DT.C 492: Call to function 'printf' with no prototype
+Warning DT.C 493: Call to function 'printf' with no prototype
+Warning DT.C 497: 'next' is declared but never used
+Warning DT.C 515: No declaration for function 'printf'
+Warning DT.C 515: Call to function 'printf' with no prototype
+Warning DT.C 518: Call to function 'printf' with no prototype
+Warning DT.C 524: 'r_ptr' is declared but never used
+Warning DT.C 540: No declaration for function 'printf'
+Warning DT.C 540: Call to function 'printf' with no prototype
+Warning DT.C 542: Call to function 'printf' with no prototype
+Warning DT.C 543: Call to function 'printf' with no prototype
+Warning DT.C 565: No declaration for function 'printf'
+Warning DT.C 565: Call to function 'printf' with no prototype
+Warning DT.C 567: Call to function 'printf' with no prototype
+Warning DT.C 568: Call to function 'printf' with no prototype
+Warning DT.C 638: No declaration for function 'printf'
+Warning DT.C 638: Call to function 'printf' with no prototype
+Warning DT.C 639: Call to function 'printf' with no prototype
+Warning DT.C 640: Call to function 'printf' with no prototype
+Warning DT.C 641: Call to function 'printf' with no prototype
+Warning DT.C 642: Call to function 'printf' with no prototype
+Warning DT.C 674: No declaration for function 'printf'
+Warning DT.C 674: Call to function 'printf' with no prototype
+Warning DT.C 675: Call to function 'printf' with no prototype
+Warning DT.C 702: No declaration for function 'printf'
+Warning DT.C 702: Call to function 'printf' with no prototype
+Warning DT.C 703: Call to function 'printf' with no prototype
+Warning DT.C 704: Call to function 'printf' with no prototype
+Warning DT.C 733: No declaration for function 'printf'
+Warning DT.C 733: Call to function 'printf' with no prototype
+Warning DT.C 734: Call to function 'printf' with no prototype
+Warning DT.C 735: Call to function 'printf' with no prototype
+Warning DT.C 736: Call to function 'printf' with no prototype
+Warning DT.C 756: No declaration for function 'printf'
+Warning DT.C 756: Call to function 'printf' with no prototype
+Warning DT.C 757: Call to function 'printf' with no prototype
+Warning DT.C 758: Call to function 'printf' with no prototype
+Warning DT.C 778: No declaration for function 'printf'
+Warning DT.C 778: Call to function 'printf' with no prototype
+Warning DT.C 779: Call to function 'printf' with no prototype
+Warning DT.C 780: Call to function 'printf' with no prototype
+Warning DT.C 799: No declaration for function 'printf'
+Warning DT.C 799: Call to function 'printf' with no prototype
+Warning DT.C 803: Call to function 'printf' with no prototype
+Warning DT.C 806: Call to function 'printf' with no prototype
+Warning DT.C 810: Call to function 'printf' with no prototype
+Warning DT.C 813: Call to function 'printf' with no prototype
+Warning DT.C 816: Call to function 'printf' with no prototype
+Warning DT.C 821: Call to function 'printf' with no prototype
+Warning DT.C 823: Call to function 'printf' with no prototype
+Warning DT.C 825: Call to function 'printf' with no prototype
+Warning DT.C 826: Call to function 'printf' with no prototype
+Warning DT.C 844: No declaration for function 'printf'
+Warning DT.C 844: Call to function 'printf' with no prototype
+Warning DT.C 845: Call to function 'printf' with no prototype
+Warning DT.C 846: Call to function 'printf' with no prototype
+Warning DT.C 866: No declaration for function 'printf'
+Warning DT.C 866: Call to function 'printf' with no prototype
+Warning DT.C 867: Call to function 'printf' with no prototype
+Warning DT.C 868: Call to function 'printf' with no prototype
+Warning DT.C 886: No declaration for function 'printf'
+Warning DT.C 886: Call to function 'printf' with no prototype
+Warning DT.C 887: Call to function 'printf' with no prototype
+Warning DT.C 888: Call to function 'printf' with no prototype
+Warning DT.C 909: No declaration for function 'printf'
+Warning DT.C 909: Call to function 'printf' with no prototype
+Warning DT.C 911: Call to function 'printf' with no prototype
+Warning DT.C 913: Call to function 'printf' with no prototype
+Warning DT.C 916: Call to function 'printf' with no prototype
+Warning DT.C 918: Call to function 'printf' with no prototype
+Warning DT.C 919: Call to function 'printf' with no prototype
+Warning DT.C 947: No declaration for function 'printf'
+Warning DT.C 947: Call to function 'printf' with no prototype
+Warning DT.C 950: Call to function 'printf' with no prototype
+Warning DT.C 952: Call to function 'printf' with no prototype
+Warning DT.C 954: Call to function 'printf' with no prototype
+Warning DT.C 986: No declaration for function 'strcpy'
+Warning DT.C 986: Call to function 'strcpy' with no prototype
+Warning DT.C 1018: No declaration for function 'printf'
+Warning DT.C 1018: Call to function 'printf' with no prototype
+Warning DT.C 1019: Call to function 'printf' with no prototype
+Warning DT.C 1021: Call to function 'printf' with no prototype
+Warning DT.C 1023: Call to function 'printf' with no prototype
+Warning DT.C 1025: Call to function 'printf' with no prototype
+Warning DT.C 1027: Call to function 'printf' with no prototype
+Warning DT.C 1029: Call to function 'printf' with no prototype
+Warning DT.C 1041: 'sub_cnt' is declared but never used
+Warning DT.C 1041: 'ptr_ptr' is declared but never used
+Warning DT.C 1041: 'dt_ptr' is declared but never used
+Warning DT.C 1041: 'sb_ptr' is declared but never used
+Warning DT.C 1041: 'tp' is declared but never used
+Warning DT.C 1041: 's_ptr' is declared but never used
+Warning DT.C 1060: No declaration for function 'printf'
+Warning DT.C 1060: Call to function 'printf' with no prototype
+Warning DT.C 1106: No declaration for function 'strcmp'
+Warning DT.C 1106: Call to function 'strcmp' with no prototype
+Warning DT.C 1165: No declaration for function 'strcat'
+Warning DT.C 1165: Call to function 'strcat' with no prototype
+Warning DT.C 1170: No declaration for function 'strcmp'
+Warning DT.C 1170: Call to function 'strcmp' with no prototype
+Compiling EMITTER.C:
+Warning EMITTER.C 602: Conversion may lose significant digits
+Warning EMITTER.C 2028: Conversion may lose significant digits
+Warning EMITTER.C 2488: 'temp' is declared but never used
+Warning EMITTER.C 2631: No declaration for function 'memset'
+Warning EMITTER.C 2631: Call to function 'memset' with no prototype
+Warning EMITTER.C 2635: 'I' is declared but never used
+Warning EMITTER.C 2808: No declaration for function 'check_print'
+Warning EMITTER.C 2808: Call to function 'check_print' with no prototype
+Warning EMITTER.C 2810: Call to function 'check_print' with no prototype
+Warning EMITTER.C 2828: No declaration for function 'strlen'
+Warning EMITTER.C 2828: Call to function 'strlen' with no prototype
+Warning EMITTER.C 2838: No declaration for function 'strnset'
+Warning EMITTER.C 2838: Call to function 'strnset' with no prototype
+Warning EMITTER.C 2860: Conversion may lose significant digits
+Warning EMITTER.C 2862: No declaration for function 'strcmp'
+Warning EMITTER.C 2862: Call to function 'strcmp' with no prototype
+Warning EMITTER.C 2864: No declaration for function 'check_print'
+Warning EMITTER.C 2864: Call to function 'check_print' with no prototype
+Warning EMITTER.C 2869: Call to function 'check_print' with no prototype
+Warning EMITTER.C 2934: 'hex' is declared but never used
+Warning EMITTER.C 3261: No declaration for function 'strcmp'
+Warning EMITTER.C 3261: Call to function 'strcmp' with no prototype
+Warning EMITTER.C 3264: No declaration for function 'strcpy'
+Warning EMITTER.C 3264: Call to function 'strcpy' with no prototype
+Warning EMITTER.C 3323: No declaration for function 'memset'
+Warning EMITTER.C 3323: Call to function 'memset' with no prototype
+Warning EMITTER.C 3403: Conversion may lose significant digits
+Warning EMITTER.C 3404: No declaration for function 'memcpy'
+Warning EMITTER.C 3404: Call to function 'memcpy' with no prototype
+Compiling FORM.C:
+Warning FORM.C 151: No declaration for function 'strcpy'
+Warning FORM.C 151: Call to function 'strcpy' with no prototype
+Warning FORM.C 152: Call to function 'strcpy' with no prototype
+Warning FORM.C 164: Call to function 'strcpy' with no prototype
+Warning FORM.C 202: Call to function 'strcpy' with no prototype
+Warning FORM.C 204: Call to function 'strcpy' with no prototype
+Warning FORM.C 217: No declaration for function 'validate_args'
+Warning FORM.C 217: Call to function 'validate_args' with no prototype
+Warning FORM.C 236: 'cur_y' is declared but never used
+Warning FORM.C 254: No declaration for function 'field_num'
+Warning FORM.C 254: Call to function 'field_num' with no prototype
+Warning FORM.C 288: No declaration for function 'strstr'
+Warning FORM.C 288: Call to function 'strstr' with no prototype
+Warning FORM.C 294: No declaration for function 'strcmp'
+Warning FORM.C 294: Call to function 'strcmp' with no prototype
+Warning FORM.C 302: Call to function 'strstr' with no prototype
+Warning FORM.C 306: No declaration for function 'strcpy'
+Warning FORM.C 306: Call to function 'strcpy' with no prototype
+Warning FORM.C 310: Call to function 'strstr' with no prototype
+Warning FORM.C 314: Call to function 'strcpy' with no prototype
+Warning FORM.C 326: Call to function 'strcmp' with no prototype
+Warning FORM.C 331: Call to function 'strcmp' with no prototype
+Warning FORM.C 356: Call to function 'strcpy' with no prototype
+Warning FORM.C 365: 'L' is declared but never used
+Warning FORM.C 365: 'K' is declared but never used
+Warning FORM.C 391: No declaration for function 'isalnum'
+Warning FORM.C 391: Call to function 'isalnum' with no prototype
+Warning FORM.C 398: No declaration for function 'strcat'
+Warning FORM.C 398: Call to function 'strcat' with no prototype
+Warning FORM.C 400: No declaration for function 'strlen'
+Warning FORM.C 400: Call to function 'strlen' with no prototype
+Warning FORM.C 401: Call to function 'strlen' with no prototype
+Warning FORM.C 409: No declaration for function 'strcmp'
+Warning FORM.C 409: Call to function 'strcmp' with no prototype
+Warning FORM.C 412: No declaration for function 'strcpy'
+Warning FORM.C 412: Call to function 'strcpy' with no prototype
+Warning FORM.C 426: Call to function 'strcpy' with no prototype
+Warning FORM.C 439: No declaration for function 'isalpha'
+Warning FORM.C 439: Call to function 'isalpha' with no prototype
+Warning FORM.C 443: Call to function 'strcat' with no prototype
+Warning FORM.C 453: Call to function 'strcmp' with no prototype
+Warning FORM.C 456: Call to function 'strcmp' with no prototype
+Warning FORM.C 459: Call to function 'strcmp' with no prototype
+Warning FORM.C 462: Call to function 'strcmp' with no prototype
+Warning FORM.C 478: Call to function 'isalpha' with no prototype
+Warning FORM.C 482: Call to function 'strcat' with no prototype
+Warning FORM.C 492: Call to function 'strcmp' with no prototype
+Warning FORM.C 493: Call to function 'strcmp' with no prototype
+Warning FORM.C 496: Call to function 'strcmp' with no prototype
+Warning FORM.C 497: Call to function 'strcmp' with no prototype
+Warning FORM.C 549: No declaration for function 'strlen'
+Warning FORM.C 549: Call to function 'strlen' with no prototype
+Warning FORM.C 566: No declaration for function 'printf'
+Warning FORM.C 566: Call to function 'printf' with no prototype
+Warning FORM.C 604: No declaration for function 'printf'
+Warning FORM.C 604: Call to function 'printf' with no prototype
+Warning FORM.C 614: Call to function 'printf' with no prototype
+Warning FORM.C 655: No declaration for function 'printf'
+Warning FORM.C 655: Call to function 'printf' with no prototype
+Warning FORM.C 671: No declaration for function 'putchar'
+Warning FORM.C 671: Call to function 'putchar' with no prototype
+Warning FORM.C 672: Call to function 'putchar' with no prototype
+Warning FORM.C 673: Call to function 'putchar' with no prototype
+Warning FORM.C 677: Call to function 'putchar' with no prototype
+Warning FORM.C 678: Call to function 'putchar' with no prototype
+Warning FORM.C 679: Call to function 'putchar' with no prototype
+Warning FORM.C 686: No declaration for function 'strlen'
+Warning FORM.C 686: Call to function 'strlen' with no prototype
+Warning FORM.C 687: No declaration for function 'strcpy'
+Warning FORM.C 687: Call to function 'strcpy' with no prototype
+Warning FORM.C 691: Call to function 'printf' with no prototype
+Warning FORM.C 694: Call to function 'printf' with no prototype
+Warning FORM.C 714: No declaration for function 'printf'
+Warning FORM.C 714: Call to function 'printf' with no prototype
+Warning FORM.C 715: Call to function 'printf' with no prototype
+Warning FORM.C 720: Call to function 'printf' with no prototype
+Warning FORM.C 721: Call to function 'printf' with no prototype
+Warning FORM.C 726: Call to function 'printf' with no prototype
+Warning FORM.C 727: Call to function 'printf' with no prototype
+Warning FORM.C 844: No declaration for function 'putchar'
+Warning FORM.C 844: Call to function 'putchar' with no prototype
+Warning FORM.C 846: No declaration for function 'strcat'
+Warning FORM.C 846: Call to function 'strcat' with no prototype
+Warning FORM.C 865: No declaration for function 'printf'
+Warning FORM.C 865: Call to function 'printf' with no prototype
+Warning FORM.C 877: Call to function 'printf' with no prototype
+Warning FORM.C 901: Call to function 'printf' with no prototype
+Warning FORM.C 937: Call to function 'putchar' with no prototype
+Warning FORM.C 938: Call to function 'putchar' with no prototype
+Warning FORM.C 939: Call to function 'putchar' with no prototype
+Warning FORM.C 944: Call to function 'putchar' with no prototype
+Warning FORM.C 945: Call to function 'putchar' with no prototype
+Warning FORM.C 946: Call to function 'putchar' with no prototype
+Warning FORM.C 976: Call to function 'putchar' with no prototype
+Warning FORM.C 977: Call to function 'putchar' with no prototype
+Warning FORM.C 978: Call to function 'putchar' with no prototype
+Warning FORM.C 983: Call to function 'putchar' with no prototype
+Warning FORM.C 984: Call to function 'putchar' with no prototype
+Warning FORM.C 985: Call to function 'putchar' with no prototype
+Warning FORM.C 1013: Call to function 'printf' with no prototype
+Warning FORM.C 1025: No declaration for function 'strcpy'
+Warning FORM.C 1025: Call to function 'strcpy' with no prototype
+Warning FORM.C 1052: No declaration for function 'strlen'
+Warning FORM.C 1052: Call to function 'strlen' with no prototype
+Warning FORM.C 1064: No declaration for function 'strcpy'
+Warning FORM.C 1064: Call to function 'strcpy' with no prototype
+Compiling LIST.C:
+Warning LIST.C 423: No declaration for function 'itoa'
+Warning LIST.C 423: Call to function 'itoa' with no prototype
+Warning LIST.C 436: Call to function 'itoa' with no prototype
+Warning LIST.C 471: Call to function 'itoa' with no prototype
+Warning LIST.C 478: Call to function 'itoa' with no prototype
+Warning LIST.C 510: Call to function 'itoa' with no prototype
+Warning LIST.C 517: Call to function 'itoa' with no prototype
+Compiling NODE.C:
+Warning NODE.C 123: No declaration for function 'report'
+Warning NODE.C 123: Call to function 'report' with no prototype
+Warning NODE.C 152: No declaration for function 'printf'
+Warning NODE.C 152: Call to function 'printf' with no prototype
+Warning NODE.C 660: No declaration for function 'report'
+Warning NODE.C 660: Call to function 'report' with no prototype
+Warning NODE.C 672: Call to function 'report' with no prototype
+Warning NODE.C 689: No declaration for function 'strcpy'
+Warning NODE.C 689: Call to function 'strcpy' with no prototype
+Warning NODE.C 715: Call to function 'nodetype' with no prototype
+Warning NODE.C 716: Call to function 'nodetype' with no prototype
+Warning NODE.C 790: Call to function 'nodetype' with no prototype
+Warning NODE.C 791: Call to function 'insert_node' with no prototype
+Warning NODE.C 793: Call to function 'nodetype' with no prototype
+Warning NODE.C 794: Call to function 'insert_node' with no prototype
+Warning NODE.C 805: No declaration for function 'report'
+Warning NODE.C 805: Call to function 'report' with no prototype
+Warning NODE.C 853: Call to function 'report' with no prototype
+Warning NODE.C 873: No declaration for function 'report'
+Warning NODE.C 873: Call to function 'report' with no prototype
+Warning NODE.C 878: Call to function 'nodetype' with no prototype
+Warning NODE.C 885: Call to function 'next_stmt' with no prototype
+Warning NODE.C 889: Call to function 'next_stmt' with no prototype
+Warning NODE.C 893: Call to function 'next_stmt' with no prototype
+Warning NODE.C 897: Call to function 'next_stmt' with no prototype
+Warning NODE.C 901: Call to function 'next_stmt' with no prototype
+Warning NODE.C 905: Call to function 'next_stmt' with no prototype
+Warning NODE.C 909: Call to function 'next_stmt' with no prototype
+Warning NODE.C 913: Call to function 'next_stmt' with no prototype
+Warning NODE.C 917: Call to function 'next_stmt' with no prototype
+Warning NODE.C 921: Call to function 'next_stmt' with no prototype
+Warning NODE.C 925: Call to function 'next_stmt' with no prototype
+Warning NODE.C 929: Call to function 'next_stmt' with no prototype
+Warning NODE.C 933: Call to function 'next_stmt' with no prototype
+Warning NODE.C 937: Call to function 'next_stmt' with no prototype
+Warning NODE.C 941: Call to function 'next_stmt' with no prototype
+Warning NODE.C 945: Call to function 'next_stmt' with no prototype
+Warning NODE.C 949: Call to function 'next_stmt' with no prototype
+Warning NODE.C 953: Call to function 'next_stmt' with no prototype
+Warning NODE.C 957: Call to function 'next_stmt' with no prototype
+Warning NODE.C 961: Call to function 'next_stmt' with no prototype
+Warning NODE.C 965: Call to function 'next_stmt' with no prototype
+Warning NODE.C 969: Call to function 'next_stmt' with no prototype
+Warning NODE.C 973: Call to function 'next_stmt' with no prototype
+Warning NODE.C 977: Call to function 'next_stmt' with no prototype
+Warning NODE.C 979: Call to function 'report' with no prototype
+Warning NODE.C 1021: Call to function 'nodetype' with no prototype
+Warning NODE.C 1031: No declaration for function 'report'
+Warning NODE.C 1031: Call to function 'report' with no prototype
+Compiling PASS1.C:
+Warning PASS1.C 361: 'ln' is declared but never used
+Warning PASS1.C 361: 'r' is declared but never used
+Warning PASS1.C 361: 'p' is declared but never used
+Warning PASS1.C 465: 'p_ptr' is declared but never used
+Warning PASS1.C 465: 'ln' is declared but never used
+Warning PASS1.C 465: 'r' is declared but never used
+Warning PASS1.C 505: 'ln' is declared but never used
+Warning PASS1.C 505: 'r' is declared but never used
+Warning PASS1.C 505: 'p' is declared but never used
+Warning PASS1.C 599: 'ln' is declared but never used
+Warning PASS1.C 599: 'r' is declared but never used
+Warning PASS1.C 599: 'p' is declared but never used
+Warning PASS1.C 773: 'temp_ptr' is declared but never used
+Warning PASS1.C 773: 'ln' is declared but never used
+Warning PASS1.C 773: 'r' is declared but never used
+Warning PASS1.C 948: 'ln' is declared but never used
+Warning PASS1.C 948: 'r' is declared but never used
+Warning PASS1.C 948: 'p' is declared but never used
+Warning PASS1.C 948: 'nt' is declared but never used
+Warning PASS1.C 1306: No declaration for function 'parse_put'
+Warning PASS1.C 1306: Call to function 'parse_put' with no prototype
+Warning PASS1.C 1429: No declaration for function 'parse_leave'
+Warning PASS1.C 1429: Call to function 'parse_leave' with no prototype
+Warning PASS1.C 1468: 'possible_dcl' is declared but never used
+Warning PASS1.C 1468: 'ntype' is declared but never used
+Warning PASS1.C 1468: 'ln' is declared but never used
+Warning PASS1.C 1468: 'r' is declared but never used
+Warning PASS1.C 1511: No declaration for function 'atol'
+Warning PASS1.C 1511: Call to function 'atol' with no prototype
+Warning PASS1.C 1701: 'ln' is declared but never used
+Warning PASS1.C 1701: 'r' is declared but never used
+Warning PASS1.C 1788: 'ln' is declared but never used
+Warning PASS1.C 1788: 'r' is declared but never used
+Warning PASS1.C 1886: 's_ptr' is declared but never used
+Warning PASS1.C 1886: 'ln' is declared but never used
+Warning PASS1.C 1886: 'r' is declared but never used
+Warning PASS1.C 1932: 'ln' is declared but never used
+Warning PASS1.C 1932: 'r' is declared but never used
+Warning PASS1.C 1932: 'p' is declared but never used
+Warning PASS1.C 2008: 'ln' is declared but never used
+Warning PASS1.C 2008: 'r' is declared but never used
+Warning PASS1.C 2008: 'p' is declared but never used
+Warning PASS1.C 2032: 'ln' is declared but never used
+Warning PASS1.C 2032: 'r' is declared but never used
+Warning PASS1.C 2032: 'p' is declared but never used
+Warning PASS1.C 2408: No declaration for function 'atoi'
+Warning PASS1.C 2408: Call to function 'atoi' with no prototype
+Warning PASS1.C 2410: Call to function 'atoi' with no prototype
+Warning PASS1.C 2520: 'ln' is declared but never used
+Warning PASS1.C 2520: 'r' is declared but never used
+Warning PASS1.C 2644: Conversion may lose significant digits
+Warning PASS1.C 2762: No declaration for function 'atoi'
+Warning PASS1.C 2762: Call to function 'atoi' with no prototype
+Warning PASS1.C 2764: Call to function 'atoi' with no prototype
+Warning PASS1.C 2879: 'ln' is declared but never used
+Warning PASS1.C 2879: 'r' is declared but never used
+Warning PASS1.C 3085: 'ln' is declared but never used
+Warning PASS1.C 3085: 'r' is declared but never used
+Warning PASS1.C 3236: 's_ptr' is declared but never used
+Warning PASS1.C 3236: 'ln' is declared but never used
+Warning PASS1.C 3236: 'r' is declared but never used
+Warning PASS1.C 3236: 'p' is declared but never used
+Warning PASS1.C 3261: No declaration for function 'parse_condition'
+Warning PASS1.C 3261: Call to function 'parse_condition' with no prototype
+Warning PASS1.C 3269: 'ln' is declared but never used
+Warning PASS1.C 3269: 'r' is declared but never used
+Warning PASS1.C 3269: 'p' is declared but never used
+Warning PASS1.C 3294: No declaration for function 'condition_type'
+Warning PASS1.C 3294: Call to function 'condition_type' with no prototype
+Warning PASS1.C 3341: 'r_ptr' is declared but never used
+Warning PASS1.C 3341: 's_ptr' is declared but never used
+Warning PASS1.C 3382: 'ln' is declared but never used
+Warning PASS1.C 3382: 'r' is declared but never used
+Warning PASS1.C 3382: 'p' is declared but never used
+Warning PASS1.C 3431: 'ln' is declared but never used
+Warning PASS1.C 3431: 'r' is declared but never used
+Warning PASS1.C 3431: 'p' is declared but never used
+Warning PASS1.C 3469: No declaration for function 'condition_type'
+Warning PASS1.C 3469: Call to function 'condition_type' with no prototype
+Warning PASS1.C 3516: 'r_ptr' is declared but never used
+Warning PASS1.C 3516: 'ln' is declared but never used
+Warning PASS1.C 3516: 'r' is declared but never used
+Warning PASS1.C 3516: 'p' is declared but never used
+Warning PASS1.C 3591: 'ln' is declared but never used
+Warning PASS1.C 3591: 'r' is declared but never used
+Warning PASS1.C 3591: 'p' is declared but never used
+Warning PASS1.C 3668: 'ln' is declared but never used
+Warning PASS1.C 3668: 'r' is declared but never used
+Warning PASS1.C 3668: 'p' is declared but never used
+Warning PASS1.C 3762: 'ln' is declared but never used
+Warning PASS1.C 3762: 'r' is declared but never used
+Warning PASS1.C 3762: 'p' is declared but never used
+Warning PASS1.C 3906: 'temp_ptr' is declared but never used
+Warning PASS1.C 3906: 'ln' is declared but never used
+Warning PASS1.C 3906: 'r' is declared but never used
+Warning PASS1.C 4030: 'temp_ptr' is declared but never used
+Warning PASS1.C 4030: 'ln' is declared but never used
+Warning PASS1.C 4030: 'r' is declared but never used
+Warning PASS1.C 4160: 'temp_ptr' is declared but never used
+Warning PASS1.C 4160: 'ln' is declared but never used
+Warning PASS1.C 4160: 'r' is declared but never used
+Warning PASS1.C 4244: 'temp_ptr' is declared but never used
+Warning PASS1.C 4244: 'ln' is declared but never used
+Warning PASS1.C 4244: 'r' is declared but never used
+Warning PASS1.C 4244: 'p' is declared but never used
+Warning PASS1.C 4361: 'temp_ptr' is declared but never used
+Warning PASS1.C 4361: 'ln' is declared but never used
+Warning PASS1.C 4361: 'r' is declared but never used
+Warning PASS1.C 4361: 'p' is declared but never used
+Warning PASS1.C 4430: No declaration for function 'operator'
+Warning PASS1.C 4430: Call to function 'operator' with no prototype
+Warning PASS1.C 4641: 'warn_select' is declared but never used
+Warning PASS1.C 4737: 'p' is declared but never used
+Warning PASS1.C 4737: 'stmt_ptr' is declared but never used
+Warning PASS1.C 4774: 'p' is declared but never used
+Warning PASS1.C 4774: 'stmt_ptr' is declared but never used
+Warning PASS1.C 4799: No declaration for function 'atol'
+Warning PASS1.C 4799: Call to function 'atol' with no prototype
+Warning PASS1.C 4908: No declaration for function 'atoi'
+Warning PASS1.C 4908: Call to function 'atoi' with no prototype
+Warning PASS1.C 4909: Call to function 'atoi' with no prototype
+Warning PASS1.C 5062: Conversion may lose significant digits
+Warning PASS1.C 5172: No declaration for function 'atoi'
+Warning PASS1.C 5172: Call to function 'atoi' with no prototype
+Warning PASS1.C 5174: Call to function 'atoi' with no prototype
+Warning PASS1.C 5299: 'ln' is declared but never used
+Warning PASS1.C 5299: 'r' is declared but never used
+Warning PASS1.C 5352: No declaration for function 'atoi'
+Warning PASS1.C 5352: Call to function 'atoi' with no prototype
+Warning PASS1.C 5403: No declaration for function 'parse_subname'
+Warning PASS1.C 5403: Call to function 'parse_subname' with no prototype
+Warning PASS1.C 5428: 'next_ptr' is declared but never used
+Warning PASS1.C 5428: 'prev_ptr' is declared but never used
+Warning PASS1.C 5512: No declaration for function 'parse_sublist'
+Warning PASS1.C 5512: Call to function 'parse_sublist' with no prototype
+Warning PASS1.C 5533: 's_ptr' is declared but never used
+Warning PASS1.C 5589: 'pr_ptr' is declared but never used
+Compiling PASS2.C:
+Warning PASS2.C 745: 'next' is declared but never used
+Warning PASS2.C 1202: No declaration for function 'insert_node'
+Warning PASS2.C 1202: Call to function 'insert_node' with no prototype
+Warning PASS2.C 1225: Call to function 'insert_node' with no prototype
+Warning PASS2.C 1249: 'b_ptr' is declared but never used
+Warning PASS2.C 1328: 'ptr' is declared but never used
+Warning PASS2.C 1354: 'ptr' is declared but never used
+Warning PASS2.C 1599: 'ptr' is declared but never used
+Warning PASS2.C 1616: 'ptr' is declared but never used
+Warning PASS2.C 2380: No declaration for function 'qualified'
+Warning PASS2.C 2380: Call to function 'qualified' with no prototype
+Warning PASS2.C 2422: 'tp' is declared but never used
+Warning PASS2.C 2590: 'I' is declared but never used
+Warning PASS2.C 2757: Conversion may lose significant digits
+Warning PASS2.C 2890: 'counter' is declared but never used
+Warning PASS2.C 3242: 's_ptr' is declared but never used
+Warning PASS2.C 3291: 's_ptr' is declared but never used
+Warning PASS2.C 3395: 's_ptr' is declared but never used
+Warning PASS2.C 3435: No declaration for function 'printf'
+Warning PASS2.C 3435: Call to function 'printf' with no prototype
+Error PASS2.C 3507: Character constant must be one or two characters long
+Error PASS2.C 3969: Character constant must be one or two characters long
+Error PASS2.C 4023: Character constant must be one or two characters long
+Compiling PASS2.C:
+AFTER CORRECTIN ERRORS ABOVE
+Warning PASS2.C 745: 'next' is declared but never used
+Warning PASS2.C 1202: No declaration for function 'insert_node'
+Warning PASS2.C 1202: Call to function 'insert_node' with no prototype
+Warning PASS2.C 1225: Call to function 'insert_node' with no prototype
+Warning PASS2.C 1249: 'b_ptr' is declared but never used
+Warning PASS2.C 1328: 'ptr' is declared but never used
+Warning PASS2.C 1354: 'ptr' is declared but never used
+Warning PASS2.C 1599: 'ptr' is declared but never used
+Warning PASS2.C 1616: 'ptr' is declared but never used
+Warning PASS2.C 2380: No declaration for function 'qualified'
+Warning PASS2.C 2380: Call to function 'qualified' with no prototype
+Warning PASS2.C 2422: 'tp' is declared but never used
+Warning PASS2.C 2590: 'I' is declared but never used
+Warning PASS2.C 2757: Conversion may lose significant digits
+Warning PASS2.C 2890: 'counter' is declared but never used
+Warning PASS2.C 3242: 's_ptr' is declared but never used
+Warning PASS2.C 3291: 's_ptr' is declared but never used
+Warning PASS2.C 3395: 's_ptr' is declared but never used
+Warning PASS2.C 3435: No declaration for function 'printf'
+Warning PASS2.C 3435: Call to function 'printf' with no prototype
+Compiling PL1.C:
+Warning PL1.C 175: No declaration for function 'strcpy'
+Warning PL1.C 175: Call to function 'strcpy' with no prototype
+Warning PL1.C 217: No declaration for function 'strrev'
+Warning PL1.C 217: Call to function 'strrev' with no prototype
+Warning PL1.C 221: Call to function 'strrev' with no prototype
+Warning PL1.C 222: No declaration for function 'strcat'
+Warning PL1.C 222: Call to function 'strcat' with no prototype
+Warning PL1.C 225: Call to function 'strrev' with no prototype
+Warning PL1.C 232: Call to function 'strcpy' with no prototype
+Warning PL1.C 233: Call to function 'strrev' with no prototype
+Warning PL1.C 237: Call to function 'strrev' with no prototype
+Warning PL1.C 291: Call to function 'process_declares' with no prototype
+Warning PL1.C 395: 'token' is declared but never used
+Warning PL1.C 761: No declaration for function 'isalpha'
+Warning PL1.C 761: Call to function 'isalpha' with no prototype
+Compiling REPORT.C:
+Warning REPORT.C 124: No declaration for function 'sound'
+Warning REPORT.C 124: Call to function 'sound' with no prototype
+Warning REPORT.C 125: No declaration for function 'delay'
+Warning REPORT.C 125: Call to function 'delay' with no prototype
+Warning REPORT.C 126: No declaration for function 'nosound'
+Warning REPORT.C 126: Call to function 'nosound' with no prototype
+Warning REPORT.C 201: 'rem' is declared but never used
+Compiling SCANNER.C:
+Warning SCANNER.C 1520: 'temp_pos' is declared but never used
+Warning SCANNER.C 1520: 'I' is declared but never used
+Warning SCANNER.C 1520: 'tkn' is declared but never used
+Warning SCANNER.C 1520: 'rec' is declared but never used
+Warning SCANNER.C 1520: 'pos' is declared but never used
+Warning SCANNER.C 1520: 'ch' is declared but never used
+Warning SCANNER.C 1666: Call to function 'locate_lexeme' with no prototype
+Warning SCANNER.C 1671: 'length' is declared but never used
+Warning SCANNER.C 1735: Conversion may lose significant digits
+Warning SCANNER.C 1763: 'I' is declared but never used
+Compiling SUPPORT.C:
+Warning SUPPORT.C 23: Bit fields must be signed or unsigned int
+Warning SUPPORT.C 24: Bit fields must be signed or unsigned int
+Warning SUPPORT.C 108: 'b' is declared but never used
+Warning SUPPORT.C 108: Parameter 'decimal' is never used
+Warning SUPPORT.C 108: Parameter 'p' is never used
+Warning SUPPORT.C 108: Parameter 'q' is never used
+Warning SUPPORT.C 137: Parameter 'decimal' is never used
+Warning SUPPORT.C 137: Parameter 'p' is never used
+Warning SUPPORT.C 137: Parameter 'q' is never used
+Transfer to program: Turbo Assembler   /D__LARGE__ /D__CDECL__ /e/ml SUPPORT.asm,SUPPORT:
+Compiling SYM.C:
+Warning SYM.C 231: No declaration for function 'report'
+Warning SYM.C 231: Call to function 'report' with no prototype
+Warning SYM.C 455: No declaration for function 'report'
+Warning SYM.C 455: Call to function 'report' with no prototype
+Linking PL1.EXE:

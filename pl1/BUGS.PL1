@@ -1,0 +1,60 @@
+bugs:
+
+   proc;
+
+     dcl 1 ale,               /* based (ale_ptr) volatile, */
+           2 lock,
+             3 name           char (32) var,
+             3 address        pointer, 
+             3 state          bin (15), 
+             3 mode           bin (15), 
+             3 type           bin (15), 
+           2 ple_ptr          pointer, 
+           2 locked_at        fixed dec (15), 
+           2 list,
+             3 next_ptr       pointer,
+             3 prev_ptr       pointer,
+           2 frees,
+             3 bits            bin (15),
+             3 bytes           bin (15),  
+           2 sublists,
+             3 waiters,
+               4 rle_ptr      pointer,
+               4 num_rles     bin (15),
+             3 holders,
+               4 cle_ptr      pointer,
+               4 num_cles     bin (15),
+           2 meters,
+             3 locks          bin (31),
+             3 unlocks        bin (31),
+             3 num_waits      bin (31),
+             3 num_spins      bin (31),
+             3 mean_time     fixed dec (15);  
+              
+
+
+   dcl ale_ptr     ptr;
+/*
+   ale.name      = '';
+   ale.address   = 0;
+   ale.state     = 0;
+   ale.mode      = 0;
+   ale.type      = 0;
+   ale.ple_ptr   = 0;
+   ale.locked_at = 0;
+   ale.next_ptr  = 0;
+   ale.prev_ptr  = 0;
+   ale.bit       = 0;
+   ale.byte      = 0;
+   ale.rle_ptr   = 0;
+   ale.num_rles  = 0;
+   ale.cle_ptr   = 0;
+   ale.num_cles  = 0;
+   ale.locks     = 0;
+   ale.unlocks   = 0;
+   ale.num_waits = 0;
+   ale.num_spins = 0;   */
+   ale.mean_time = 0;     
+   end;
+
+

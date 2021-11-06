@@ -1,0 +1,31 @@
+talker:
+
+   proc options (main);
+
+   dcl dos$clear_screen entry;
+   dcl chatter          entry;
+   dcl (I,s)            bin(15);
+
+
+   s = 1;
+
+   call dos$clear_screen;
+
+   put skip (s) list ('This is a message from talker.');
+
+   do I = 1 to 10;
+
+      put skip(s) list('Im talker and I am gonna call chatter now.');
+
+      call chatter;
+
+   end;
+
+   put skip(s) list ('OK Ive finished.');
+
+   end talker;
+
+ 
+
+   
+

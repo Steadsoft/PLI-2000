@@ -1,0 +1,15 @@
+loop:
+
+   proc options (main);
+
+   dcl p           bin(15);
+
+   do p = 1 to 10;
+      p = 1;
+   end;
+
+end;
+
+
+
+

@@ -1,0 +1,10 @@
+refbug:
+
+   proc;
+
+   
+   a(b).c = 0;
+
+   end;
+
+

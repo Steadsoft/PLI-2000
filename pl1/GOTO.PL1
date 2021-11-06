@@ -1,0 +1,18 @@
+test_goto :
+
+   proc;
+
+   dcl (a,b,c)         bin(15);
+
+   a = 0; b = 10;
+
+adjust:
+
+   a = a + 1;
+
+   if a < b then
+      goto adjust;
+
+end;
+
+

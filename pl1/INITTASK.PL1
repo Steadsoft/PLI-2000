@@ -1,0 +1,253 @@
+
+/* Get tasking running. We don't return to our caller unless errors
+   are detected. */
+/* Beginning of modification history */
+/* Modified 86-11-18 by Chris Tavares to fix tpf-0101 and write around
+   vtm-0002. (vtm-0002 really should be written around in s$start_task,
+   but that's in OS and I need to ship an emergency runtime fix.)  This
+   fix is for RELEASE 5.1 ONLY, and ought to be done right in 6.0. */
+/* Modified 88-09-19 by Linda Cabeca to fix bug vos-2431 */
+/* End of modification history */
+
+s$init_task_config:
+
+ÿÿÿÿprocedure (p_tcf_path,
+ÿÿÿÿ           p_call_debug,
+ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿp_code);
+
+/* parameters */
+
+declare   p_tcf_path char (256) var,              /* Input */
+          p_n_args bin (15),                      /* Input */
+          p_arg_ptrs (256) ptr,                   /* Input */
+          p_call_debug bin (15),                  /* Input */
+          p_code bin (15);                        /* Output */
+
+/* automatic */
+
+declare
+          arg_ptrs (256) ptr,
+          cur_task_id bin (15),
+          last_task_id bin (15),
+          n_args bin (15),
+          pmh_ptr ptr,
+          port_id bin (15),
+          record_size bin (15),
+          cur_task_exists bit (1),
+          saved_code fixed bin (15),
+          task_id bin (15),
+          tcf_record_size bin (15),
+          terminal_name char (66) var;
+
+declare   1 cur_tcf_record,
+%include 'task_config_inner';;
+
+/* constants */
+
+%replace  false               by '0'b;
+%replace  true                by '1'b;
+%replace  PROCESS_TERMINAL    by '(process_terminal)';
+/* entries */
+
+declare   s$cleanup_task entry (bin (15), bin (15)),
+          s$close entry (bin (15), bin (15)),
+          s$control_task entry (bin (15), bin (15), bin (15)),
+          s$detach_port entry (bin (15), bin (15)),
+          s$find_entry entry (ptr, char (32) var, entry, bin (15)),
+          s$get_free_task_id entry (bin (15), bin (15), bin (15)),
+          s$get_program_info entry (ptr, bin (31), bin (15)),
+          s$get_task_id entry (bin (15)),
+          s$init_task entry (bin (15), char (66) var, bin (15)),
+          s$seq_open entry (char (256) var, bin (15), bin (15),
+               bin (15)),
+          s$seq_read entry (bin (15), bin (15), bin (15), char (*),
+               bin (15)),
+          s$start_task_full entry (bin (15), entry, bin (15), (256) ptr,
+               bin (15), bin (15));
+
+/* External constants */
+
+declare (e$end_of_file,
+         e$invalid_record_size,
+         e$vc_disconnected)        fixed bin (15) external static;
+
+/* include files */
+
+%nolist; %include 'system_io_constants'; %list;
+%include 'task_config';
+%include 'task_constants';
+%page;
+/* program */
+
+     n_args = 0;
+     goto join;
+
+s$init_task_config_full:
+     entry (p_tcf_path, p_n_args, p_arg_ptrs, p_call_debug, p_code);
+
+     n_args = p_n_args;
+     arg_ptrs = p_arg_ptrs;
+
+join:
+
+ÿÿÿÿ /********************************************************************/
+ÿÿÿÿÿ/*                   Get .pm file header record.ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ*/
+ÿÿÿÿÿ/********************************************************************/
+
+     call s$get_program_info (pmh_ptr, (0), p_code);
+     if p_code ^= 0
+     then return;
+
+     call s$seq_open (p_tcf_path, INPUT_TYPE, port_id, p_code);
+     if p_code ^= 0
+     then return;
+
+     call s$get_task_id (cur_task_id);
+
+     cur_task_exists = false;
+     last_task_id = 0;
+     tcf_record_size = length (tcf_record);
+     saved_code = 0;
+
+ÿÿÿÿÿ/********************************************************************/
+ÿÿÿÿÿ/*         Read a record from the task configuration file.ÿÿÿÿÿÿ    */
+ÿÿÿÿÿ/********************************************************************/
+
+     call s$seq_read (port_id, tcf_record_size, record_size,
+          tcf_record, p_code);
+
+     do while (p_code = 0);
+
+ÿÿÿÿ      if record_size ^= tcf_record_size
+          then do;
+                    p_code = e$invalid_record_size;
+                    goto error_exit;
+               end;
+
+ÿÿÿÿÿÿÿÿÿÿ/*******************************************************/
+ÿÿÿÿÿÿÿÿÿÿ/*                    Process a task !ÿÿÿÿÿÿÿÿÿÿÿ      */
+ÿÿÿÿÿÿÿÿÿÿ/*******************************************************/
+
+          call init_one_task (p_code);
+
+          if p_code ^= 0
+          then if saved_code = 0
+               then saved_code = p_code;
+
+          call s$seq_read (port_id, tcf_record_size, record_size,
+               tcf_record, p_code);
+     end;
+
+ÿÿÿÿÿ/**********************************************************/
+ÿÿÿÿÿ/*           Did the loop end in a valid manner ?ÿÿÿÿÿÿÿÿÿ*/
+ÿÿÿÿÿ/**********************************************************/
+
+     if saved_code ^= 0
+     then do;
+          p_code = saved_code;
+          goto error_exit;
+     end;
+
+     if p_code ^= e$end_of_file
+     then goto error_exit;
+
+     call s$close (port_id, p_code);
+     if p_code ^= 0
+     then goto error_exit;
+
+     call s$detach_port (port_id, p_code);
+     if p_code ^= 0
+     then goto error_exit;
+
+ÿÿÿÿÿ/***************************************************************/
+     /* Note well: When we init task #1, we lose control, becauseÿÿÿ*/
+     /* the call never returns. So we have saved it until the veryÿÿ*/
+     /* last. Don't do this unless there actually is a task #1.   ÿÿ*/
+ÿÿÿÿÿ/***************************************************************/
+
+     if cur_task_exists
+     then do;
+               tcf_overlay = cur_tcf_record;
+               call init_one_task (p_code);
+          end;
+
+     return;
+
+error_exit:
+     call s$close (port_id, (0));
+     call s$detach_port (port_id, (0));
+     return;
+
+%page;
+init_one_task:
+     procedure (p_code);
+
+/* parameters */
+
+declare   p_code bin (15);
+
+/* automatic */
+
+declare   entry_value entry variable;
+declare   i fixed bin;
+
+/* program */
+
+     /* Calculate task ID involved */
+
+     if tcf_overlay.task_id = 0
+     then do;
+               call s$get_free_task_id (last_task_id, task_id, p_code);
+               if p_code ^= 0
+               then return;
+          end;
+     else task_id = tcf_overlay.task_id;
+
+     /* Initialize  current  task  last, since we are running in
+        current task.  */
+
+     if task_id = cur_task_id & ^cur_task_exists
+     then do;
+               tcf_overlay.task_id = cur_task_id;
+               cur_tcf_record = tcf_overlay;
+               cur_task_exists = true;
+               return;
+          end;
+
+     if task_id = cur_task_id
+     then do;
+               call s$control_task (task_id, TM_STOP_TASK_RETURN,
+                    p_code);
+               if p_code ^= 0
+               then return;
+
+               call s$cleanup_task (task_id, p_code);
+               if p_code ^= 0
+               then return;
+          end;
+
+     call s$find_entry (pmh_ptr, tcf_overlay.entry_name, entry_value,
+          p_code);
+     if p_code ^= 0
+     then return;
+
+     if tcf_overlay.terminal_name = '' & cur_task_id = 1
+     then terminal_name = PROCESS_TERMINAL;
+     else terminal_name = tcf_overlay.terminal_name;
+
+     call s$init_task (task_id, terminal_name, p_code);
+     if p_code ^= 0
+     then return;
+
+     p_code = e$vc_disconnected;
+     do i = 1 to 100 while (p_code = e$vc_disconnected);
+          call s$start_task_full (task_id, entry_value, n_args, arg_ptrs,
+               p_call_debug, p_code);
+     end;                /* if it doesn't let up after 100 tries, bag it */
+     if p_code ^= 0
+     then return;
+
+     end init_one_task;
+
+     end s$init_task_config;
+

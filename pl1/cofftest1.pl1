@@ -1,0 +1,41 @@
+/* Test of the COFF generation for static space and COFF symtable */
+
+block1:
+
+
+proc options (main);
+
+dcl p1		pointer based (p2);
+dcl p2		pointer based (p1);
+
+dcl static1	char(10) static;
+dcl bin15	bin(15);
+dcl bin31	bin(31);
+dcl bin31a (10) bin(31) static;
+
+
+block2:
+
+proc;
+
+dcl static2	char(20) static;
+dcl auto2	bin(31);
+
+block3:
+
+proc;
+
+dcl static3	char(30) static;
+dcl auto3	pointer;
+dcl name	char(10);
+
+name = 'This is text';
+
+name = 'This is text';
+
+end block3;
+
+end block2;
+
+end block1;
+

@@ -1,0 +1,65 @@
+vm$attach_heap:
+
+    procedure (heap_path,
+               user_entry,
+               initialize,
+               status);
+                          
+  /*  % include 'svhglobl'; */
+    % include 'kcalls';
+/*    % include 'usrcalls';
+    % include 'voscalls';
+    % include 'reverse';
+    % include 'shh';
+    % include 'plh';
+    % include 'ple'; */
+
+/*    dcl nu$check_purchase           entry  (char(*) var,
+                                            bin(15));
+ 
+    dcl s$get_max_task_id           entry  (bin(15));
+*/
+    dcl heap_path                   char (256) var;
+    dcl user_entry                  char (32) var; 
+    dcl data_pages                  bin (15);
+    dcl initialize                  bin (15);
+    dcl status                      bin (15);
+ /*   dcl call_status                 bin (15);
+    dcl event_status                bin (31);
+    dcl unique                      char (32) var ;
+    dcl i_am_first                  bit (1); 
+    dcl shh_ptr                     pointer;  */
+    dcl object_size                 bin (31);
+/*    dcl now                         bin (31);
+    dcl no_of_pages                 bin (15);
+
+    dcl all_locks (2048)            bin (15) def ( /* shared_heap. */ lock_page);
+
+    dcl 1 shared_heap               based (p_data_object),
+          2 lock_page               char (4096),
+          2 data_page               char (4096);
+  */
+    dcl p_data_object              pointer;
+    dcl vm_port                    bin (15);
+    dcl data_object                char (32) var;
+    dcl vm_port_name               char (32) var;
+    dcl ple_ptr                    pointer;
+    dcl plh_ptr                    pointer;
+    dcl PrivateLock                bin (15) based (p_data_object);
+    dcl me                         bin (31);
+    dcl lock_clearer (256)         char (1) defined ( /* shh. */ bit_lock_table);
+
+/**************************************************************************/
+/*                     Start of executable code.                          */
+/**************************************************************************/
+
+    call vm$$get_object (data_object,
+                         p_data_object,
+                         object_size,
+                         status);
+
+
+abort:
+
+    end vm$attach_heap;
+

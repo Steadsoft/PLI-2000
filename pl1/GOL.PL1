@@ -1,0 +1,56 @@
+goto_object_library:
+
+     procedure;
+
+     /*************************************************************/
+     /* allows user to select an chage to any defined object lib */
+     /*************************************************************/
+
+     dcl s$change_current_dir entry (char(*) var,
+                                     bin(15));
+
+     dcl s$parse_command entry (char(*) var,bin(15),
+                                char(*) var,char(*) var,
+                                char(*) var);
+
+     dcl s$get_library_paths entry (char(*) var,
+                                    bin(15),
+                                    bin(15),
+                                    bin(15),
+                                    /* (*) */ char(*) var,
+                                    bin(15));
+
+     dcl target               char(256) var;
+     dcl paths (64)           char(256) var;
+     dcl status               bin(15);
+     dcl num_found            bin(15);
+     dcl eval                 bin(15);
+     dcl built                char(10240) var static;
+     dcl I                    bin(15);
+
+     call s$get_library_paths ('object',
+                               1,
+                               64,
+                               num_found,
+                               paths,
+                               status);
+     if status ^= 0 then
+        stop;
+
+     built = '';
+
+     do I = 1 to (num_found-1);
+        built = built || paths(I) ||',';
+     end;
+
+     built = built || paths(num_found);
+        
+
+     call s$parse_command ('goto_object_library by Gleaves',status,
+                           'option(library),string,allow('||built||')',target,
+                           'end');          
+
+     call s$change_current_dir (target,status);
+
+     end;
+

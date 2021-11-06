@@ -1,0 +1,8 @@
+WinIO$WriteValue:
+
+procedure (arg);
+
+dcl arg		bin(15);
+
+end;
+

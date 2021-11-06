@@ -1,0 +1,72 @@
+largetst:
+
+   procedure options (main);
+
+/****************************************************************************/
+/* This program uses each of the currently implemented features of PC-PL/1  */
+/* in an attempt to expose any new or old or reintroduced compiler bugs.    */
+/****************************************************************************/
+
+
+/****************************************************************************/
+/*                         Modification History                             */
+/****************************************************************************/
+/*  Who    When                           What                              */
+/* ------------------------------------------------------------------------ */
+/*  HWG    20-01-92               First version written                     */
+/****************************************************************************/
+
+   % replace MAX_SIZE          by 10;
+   % replace INN_SIZE          by 5;
+
+   dcl 1 static_structure(MAX_SIZE) static,
+         2 s_element(INN_SIZE) bin(15),     /* IN_SIZE gives BAD ERRORS ! */
+         2 x_coord             bin(15),
+         2 y_coord             bin(15);
+
+   dcl 1 auto_structure(MAX_SIZE) automatic,
+         2 a_element(INN_SIZE) bin(15),
+         2 x_coord             bin(15),
+         2 y_coord             bin(15);
+
+   dcl (I,J,K,L,M)             bin(15) static;
+   dcl (i,j,k,l,m)             bin(15) automatic;
+   dcl one                     bin(15);
+
+
+   /****************************************************************/
+   /* This test ensures that array/structure access is working OK  */
+   /****************************************************************/
+
+
+   one = 1;
+
+   do I = 1 to MAX_SIZE;       /* static array indexed by statics */
+
+      do J = 1 to INN_SIZE;
+
+         /*******************************************************/
+         /* The following assignments are semantically the same */
+         /* and should produce IDENTICAL code.                  */
+         /*******************************************************/
+
+         s_element(I,J)                   = 1;
+         s_element(I)(J)                  = 1;
+         static_structure(I).s_element(J) = 1;
+         static_structure.s_element(I,J)  = 1;
+         static_structure.s_element(I)(J) = 1;     
+
+      end;
+
+   end;
+
+   if I ^= MAX_SIZE + 1 then
+      do;
+      put skip (one) list ('Loop termination error 1');
+      one = 1;
+      end;
+
+   put skip(one) list('Loop 1 ended fine.');
+
+end largetst;
+

@@ -1,0 +1,42 @@
+/* Received: from TDC.dircon.co.uk (root@tdc.dircon.co.uk [193.128.224.50]) by popmail.dircon.co.uk (8.6.12/8.6.9) with SMTP id VAA19470 for <the-maz@popmail.dircon.co.uk>; Tue, 23 Jan 1996 21:50:11 GMT
+Received: from goanna.cs.rmit.EDU.AU by TDC.dircon.co.uk with SMTP id AA17620
+  (5.67b/IDA-1.5 for <the-maz@dircon.co.uk>); Tue, 23 Jan 1996 21:51:39 GMT
+Received: (from rav@localhost) by goanna.cs.rmit.EDU.AU (8.7.1/8.6.9) id IAA09862; Wed, 24 Jan 1996 08:52:18 +1100 (EST)
+Date: Wed, 24 Jan 1996 08:52:18 +1100 (EST)
+From: ++           robin <rav@cs.rmit.edu.au>
+Message-Id: <199601232152.IAA09862@goanna.cs.rmit.EDU.AU>
+To: the-maz@dircon.co.uk
+Cc: rav@goanna.cs.rmit.EDU.AU
+Subject: Bug #9 PL/I compiler for DOS
+Status:   
+
+Hi Alan,
+
+   Having a problem with division.
+
+   Please pass on the the author.
+
+Thanks, Robin
+___________________________________________________________________
+
+   */
+
+Z: PROCEDURE OPTIONS (MAIN);
+   DECLARE (A, B, C) FIXED BINARY (15);
+
+   B = 15; C = 4;
+   A = 15/ 4; /* added by HWG to test fix to this bug */
+   A = B / C;
+END;
+
+/*
+______________________________________________________________
+
+ERROR 114 FOUND, BEGINNING ON LINE 5
+Compiler Error, the emitter is unable to determine
+a target register. 
+Correct all other errors, and if this message persists
+save the source file and contact the implementors.
+
+
+*/

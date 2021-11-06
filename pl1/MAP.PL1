@@ -1,0 +1,13 @@
+MAP:
+
+   PROCEDURE OPTIONS(MAIN);
+
+   DCL NAME_1          BIN(15);
+
+   NAME_1  = 1;
+
+   PUT SKIP (NAME_1) LIST ('This is a test of mapcase.');
+
+   END;
+
+

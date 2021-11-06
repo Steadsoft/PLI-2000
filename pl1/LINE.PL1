@@ -1,0 +1,92 @@
+line:
+
+   procedure (xstart,
+              ystart,
+              xend,
+              yend,
+              color,
+              page);
+
+   /*********************************************************************/
+   /*               Bresenhams line drawing algorithm.                  */
+   /*********************************************************************/
+
+   dcl xstart                              bin(15);
+   dcl ystart                              bin(15);
+   dcl xend                                bin(15);
+   dcl yend                                bin(15);
+   dcl (x,y,d,a,b,dx_diag,dy_diag)         bin(15);
+   dcl (dx_nondiag,dy_nondiag)             bin(15);
+   dcl (diag_inc,nondiag_inc,swap)         bin(15);
+   dcl color                               bin(15);
+   dcl page                                bin(15);
+   dcl I                                   bin(15);
+
+   % include 'dos';
+
+   /********************************************************************/
+   /*        S T A R T     O F    E X E C U T A B L E    C O D E       */
+   /********************************************************************/
+
+   x = xstart; y = ystart;
+
+   a = xend - xstart;
+   b = yend - ystart;
+
+   if a < 0 then
+      do;
+      a = 0 - a;
+      dx_diag = 0 - 1;
+      end;
+   else
+      dx_diag = 1;
+
+   if b < 0 then
+      do;
+      b = 0 - b;
+      dy_diag = 0 - 1;
+      end;
+   else
+      dy_diag = 1;
+
+   if a < b then
+      do;
+      swap = a;
+      a = b;
+      b = swap;
+      dx_nondiag = 0;
+      dy_nondiag = dy_diag;
+      end;
+   else
+      do;
+      dx_nondiag = dx_diag;
+      dy_nondiag = 0;
+      end;
+
+   d = b + b - a;
+
+   nondiag_inc = b + b;
+   
+   diag_inc = b + b - a - a;
+
+   do I = 0 to a;
+
+      call dos$set_pixel (color,page,x,y);
+
+      if d < 0 then
+         do;
+         x = x + dx_nondiag;
+         y = y + dy_nondiag;
+         d = d + nondiag_inc;
+         end;
+      else
+         do;
+         x = x + dx_diag;
+         y = y + dy_diag;
+         d = d + diag_inc;
+         end;
+   end;     
+
+end line;
+ 
+

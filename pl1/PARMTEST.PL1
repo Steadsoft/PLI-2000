@@ -1,0 +1,24 @@
+parmtest:
+
+   proc;
+
+
+   dcl path        bin(31);
+   dcl name        bin(15);
+
+   call inner (path,name);
+   call inner (name,path);
+
+   
+inner:
+
+   proc (a,b);
+
+   dcl a           bin(31);
+   dcl b           bin(15); 
+
+   end;
+
+end;
+
+

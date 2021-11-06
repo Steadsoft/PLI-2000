@@ -1,0 +1,67 @@
+features:
+
+        procedure (a,b,c,status);
+
+        dcl a           char (*);
+        dcl b           pointer;
+        dcl c(10)       bin(31);
+        dcl status      bin(15);
+
+        dcl 1 structure (10),
+              2 sub_1,
+                12 name         char(32) var,
+                12 address      char(256) var,
+              2 sub_2,
+                12 class        dec(9),
+                12 group        bin(4),
+              2 sub_3,
+                5 next          ptr,
+                5 prev          ptr;
+
+        dcl memory              char (64) based;
+        dcl target              pointer;
+
+        dcl mathy               float dec (15);         
+
+                     
+        if a = 1 then
+           do;
+           structure(c(a)).next = 0;
+           structure(c(a)).prev = 0;
+           return;
+           end;
+
+        if a = 2 then
+           do;
+           /*****************************************/
+           /* Loop for a little bit, it may be fun  */
+           /*****************************************/
+           do class = a to structure(a).class;
+              c(a) = c(a + 1) - 1;
+           end;
+           end;
+
+        allocate memory set (target);
+
+        call set_up (target);
+
+        /**************************************************************/
+        /*                  OK Now for a bit of math !                */
+        /**************************************************************/
+
+        
+        mathy = sin(12.6 / 123.09877);
+
+        mathy = 1 / (sqrt(mathy)) * atan (mathy);
+set_up:
+
+        proc(p) ;
+
+        dcl p           pointer;
+
+        p -> memory = 'What a Load of Garbage';
+
+        end;
+
+        end;                
+

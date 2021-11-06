@@ -1,0 +1,64 @@
+
+_test_01:
+
+procedure options(main);
+
+/* dcl WinIO$WriteValue entry (bin(15)); */
+
+dcl counter	bin(15);
+
+counter = 123;
+
+/* call WinIO$WriteValue (counter); */
+
+call inner1(counter,counter);
+call inner2(counter,counter);
+call inner3(counter,counter);
+call inner4(counter,counter);
+
+inner1:
+
+proc (arg1,arg2);
+
+dcl arg1	bin(15);
+dcl arg2  bin(15);
+
+arg1 = arg2 + 1;
+arg2 = arg1 + 1;
+end;
+
+inner2:
+
+proc (arg1,arg2);
+
+dcl arg1	bin(15);
+dcl arg2  bin(15);
+
+arg1 = arg2 + 1;
+arg2 = arg1 + 1;
+end;
+
+inner3:
+
+proc (arg1,arg2);
+
+dcl arg1	bin(15);
+dcl arg2  bin(15);
+
+arg1 = arg2 + 1;
+arg2 = arg1 + 1;
+end;
+
+inner4:
+
+proc (arg1,arg2);
+
+dcl arg1	bin(15);
+dcl arg2  bin(15);
+
+arg1 = arg2 + 1;
+arg2 = arg1 + 1;
+end;
+
+end;
+

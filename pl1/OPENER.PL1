@@ -1,0 +1,14 @@
+opener:
+
+proc;
+
+dcl keyb                file;
+
+open file (keyb) title('C:\DATA') record floating update keyed;
+
+open file (keyb) title('SODD OFF') pagesize(45) linesize (a + b), file (henry) input;
+
+
+end;
+
+

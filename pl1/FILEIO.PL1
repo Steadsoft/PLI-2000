@@ -1,0 +1,78 @@
+/*******************************************************************/
+/* Ensure that PL/I   I/O statements are parsed correctly           */
+/*******************************************************************/
+
+fileio:
+
+    procedure options (main);
+
+
+    dcl data        file;
+    dcl file		file;
+    dcl chars     char(1024) ;
+    dcl key         char(64) var;
+    dcl len         bin(31);
+    dcl lookup      char(10);
+    
+    dcl (a,b,c)      dec(7);
+    
+
+    open file(data) record input,  file(data) keyed  input;
+
+    read file(data) key (lookup) into (chars) keyto(key) sizeto(len);
+
+    write file (data) from(chars) keyfrom(key);
+
+    delete file(file) key(key);
+
+    rewrite file(data) key(key) from(chars);
+
+    close file(data);
+
+    
+
+    get file (data) list( ( a do len = 1 to 10 ) ) ;
+    
+    get file (data) edit (a,b,c)  (4 f(2,3), (5)e(5,2) ); 
+
+   put file(data) edit ( a, b, c ) ( f(4,2), e(4,3) );
+
+    /**************************************************************************************/
+    /* The following are all legal syntactic values for a <format-item>                        */
+    /**************************************************************************************/
+
+    put file(data) edit (a,b,c)     (f(10),  
+                                            	f(10,5),
+		            	e(10),
+			e(10,5),
+			p'ZZ9',
+			a,
+			a(10),
+			b,
+			b3,
+			b(128),
+			b4(256),
+			l,
+			tab,
+			tab(10),
+			line(10),
+			x(32),
+			skip,
+			skip(21),
+			column(100),
+			r(data)
+			);
+
+
+    get string (key);
+    get file (data) ;
+    get file (data) skip(23);
+    
+
+    put string (key);
+    put file (data) skip;
+    put file (data) skip(23)  line(a*b);
+      
+    end fileio;
+
+

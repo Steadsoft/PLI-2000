@@ -1,0 +1,16 @@
+strings:
+
+   proc options (main);
+
+   dcl s0      char(10);
+   dcl s1      char(32);
+   dcl s2      char(32) varying;
+   
+   s0 = 23;
+   
+   s1 = 'Fixed string';
+
+   s2 = 'Var string';
+
+   end;
+

@@ -1,0 +1,11 @@
+floats:
+
+   proc options (main);
+
+   dcl (a,b,c)     float dec (15);
+
+   a = 0;
+
+   end floats;
+
+

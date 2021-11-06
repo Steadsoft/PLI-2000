@@ -1,0 +1,72 @@
+mousey:
+
+   proc options (main);
+
+/***************************************************************************/
+/* This little program allows you to experiment with the mouse sensitivity */
+/* Refer to MS documentation on INT 33 for details of exactly what the     */
+/* sensitivities mean.                                                     */
+/***************************************************************************/
+
+   % include 'dos';
+   % include 'graphics';
+
+   dcl status                  bin(15);
+   dcl I                       bin(15);
+   dcl (cols,mode,prev_mode,page)   bin(15);
+
+   dcl 1 sensivity,
+         2 horizontal          bin(15),
+         2 vertical            bin(15);
+
+   dcl threshold               bin(15);
+
+   /*********************************************************************/
+   /* Go into graphics mode first (the mouse is more fun in this mode!) */
+   /*********************************************************************/ 
+
+   call dos$get_video_info (cols,prev_mode,page); /* save current mode */
+
+   mode = GFX_640x350_16;
+
+   call dos$set_video_mode (mode);  /* put into EGA 640x320 mode */
+
+   /* Set the sensitivity here */
+
+   horizontal = 128; 
+   vertical   = 128; 
+   threshold  = 64;
+
+   call dos$reset_mouse (status);
+
+   call dos$show_mouse;
+
+   call dos$set_mouse_sensitivity (horizontal,
+                                   vertical,
+                                   threshold);
+
+   /* Loop forever ! */
+
+   do I = 1 to 2;
+
+      I = 1;
+      I = 1;
+      I = 1;
+      I = 1;
+      I = 1;
+      I = 1;
+      I = 1;
+      I = 1;
+      I = 1;
+      I = 1;
+      I = 1;
+
+   end;
+   
+
+   
+
+   end;
+
+
+
