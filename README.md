@@ -28,5 +28,6 @@ At the time it was shelved a decent subset of the language could be used to writ
 
 A number of test source files were used for validating and testing the compiler when changes were made to it, these can be found here https://github.com/Steadsoft/PLI-2000/tree/main/pl1
 
-The code was moved to Visual Studio after a few years (it was originally built using Borland tools on DOS) and is now a Visual Studio solution and project.
+The code was moved to Visual Studio after a few years (it was originally built using Borland tools on DOS) and is now a Visual Studio solution and project. Though somewhat dated now and not a language that's in use very much, this is a real working compiler that goes all the way from raw source code to Microsoft COFF DLL files. There was no source code control in place at the time I developed this either.
+
 
