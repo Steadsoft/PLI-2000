@@ -22,6 +22,8 @@ Here are some of the resources I used as I worked on this:
 
 [Intel 386 Programmer's Reference Manual](https://css.csail.mit.edu/6.858/2013/readings/i386.pdf)
 
+[Microsoft COFF Specification](https://courses.cs.washington.edu/courses/cse378/03wi/lectures/LinkerFiles/coff.pdf)
+
 The project was more or less shelved but did see a few sales as a tool that could be used on a PC to verify PL/I source code without needing to run on a mainframe or minicomputer, a kind of pre-validation for people using the language on mainframes and minicomputers who may not have had access to those systems yet needed to work on PL/I.
 
 At the time it was shelved a decent subset of the language could be used to write code that would compile, link and run on Windows NT. I/O was supported by a support library written in C but callable from PL/I, that's how the language was able to interface to the OS, via that C layer.
