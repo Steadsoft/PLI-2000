@@ -27,3 +27,6 @@ The project was more or less shelved but did see a few sales as a tool that coul
 At the time it was shelved a decent subset of the language could be used to write code that would compile, link and run on Windows NT. I/O was supported by a support library written in C but callable from PL/I, that's how the language was able to interface to the OS, via that C layer.
 
 A number of test source files were used for validating and testing the compiler when changes were made to it, these can be found here https://github.com/Steadsoft/PLI-2000/tree/main/pl1
+
+The code was moved to Visual Studio after a few years (it was originally built using Borland tool) and is now a Visual Studio solution and project.
+
