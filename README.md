@@ -2,7 +2,7 @@
 ## A PL/I compiler for Windows NT
 This project began as an academic exercise while learning the 'C' language during the summer of 1990, I wanted something non-trivial to use as real goal when studying the 'C' language and decided to write a lexical analyzer for the PL/I language because that was a language I knew well, I had no intention to do more than just write the analyzer.
 
-As the project progressed and my knowledge of C solidified, I began to develop a deeper interest into compiler theory including recursive descent parsing, again because I knew PL/I very well from my professional work PL/I presented no problems as the langauge to use for these experiments.
+As the project progressed and my knowledge of C solidified, I began to develop a deeper interest into compiler theory including recursive descent parsing, again because I knew PL/I very well from my professional work PL/I was a natural choice for the langauge to use for these experiments plus there was almost nothing available on the market at the time for writing PL/I code that could run on a PC.
 
 Eventually the project grew and I became more confident that I was understanding the subject and that I could perhapse implement a true compiler, one that could generate 32bit DLLs in COFF format that could be linked with the MS linker. There was an earlier version too that ran on DOS and built 16-bit DOS object files for the 286.
 
