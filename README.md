@@ -35,3 +35,28 @@ The code was moved to Visual Studio after a few years (it was originally built u
 You are welcome to contact me or post issues here if you have questions or find the project useful in any way.
 
 The solution (PLI2000.sln) builds (with some warnings) fine on Windows 10 with Visual Studio 2019, I'll check with Visual Studio 2022 once that's released.
+
+## How to run
+
+The compiler leverages a powerful command line argument menuing system, sadly the source for this has been lost (but the .LIB and DLL are still here!).
+
+You can invoke the compiler from a console window as simply `PLI<Enter>` or `PLI ; <Enter>` (this latter will force the interactive menu system to run)
+
+It expects the path to a source file and in the menu you can tab around and use left-arrow or right-arrow to cycle the various options.
+
+![image](https://user-images.githubusercontent.com/12262952/140656440-382fd045-e8e3-47d1-8dd5-d19bdfa044e0.png)
+
+running that elicits:
+
+![image](https://user-images.githubusercontent.com/12262952/140656462-e42a2ca1-1abe-45e5-97f7-46e0d096a9b1.png)
+
+Because we specified the listing option you'll see a .LST file generated that shows epxanded include files with per-file line numbering as well as nesting depths and so on.
+
+![image](https://user-images.githubusercontent.com/12262952/140656410-2c42eb3b-4d98-4e8b-ad7d-aee382ef1af3.png)
+
+Specifying the `+system` option will generate assembly code too, also in the listing file:
+
+![image](https://user-images.githubusercontent.com/12262952/140656618-8deb1308-aebd-4f0c-bc79-e252ffbbd7af.png)
+
+
+
