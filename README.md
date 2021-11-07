@@ -34,3 +34,4 @@ The code was moved to Visual Studio after a few years (it was originally built u
 
 You are welcome to contact me or post issues here if you have questions or find the project useful in any way.
 
+The solution (PLI2000.sln) builds (with some warnings) fine on Windows 10 with Visual Studio 2019, I'll check with Visual Studio 2022 once that's released.
