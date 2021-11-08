@@ -1,5 +1,7 @@
 # PLI-2000
 ## A PL/I compiler for Windows NT
+This repository contains the complete buildable source code for a PL/1 (PL/I, PL1, PLI) compiler that implements much of the ANSI standard 74-1987. It generates 32-bit COFF object files that can be linked with a runtime and executed on Windows.
+
 This project began as an academic exercise while learning the 'C' language during the summer of 1990, I wanted something non-trivial to use as real goal when studying the 'C' language and decided to write a lexical analyzer for the PL/I language because that was a language I knew well, I had no intention to do more than just write the analyzer.
 
 As the project progressed and my knowledge of C solidified, I began to develop a deeper interest into compiler theory including recursive descent parsing, again because I knew PL/I very well from my professional work PL/I was a natural choice for the langauge to use for these experiments plus there was almost nothing available on the market at the time for writing PL/I code that could run on a PC.
