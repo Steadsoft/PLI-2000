@@ -2416,7 +2416,7 @@ PARSER
 
  
              case(FIXED):
-             case(FLOAT):
+             case(D_FLOAT):
                  { /* Verify scale not already seen */
                  if ((sym_ptr->scale) != 0)
                     {
@@ -3302,7 +3302,7 @@ PARSER
                  break;
                }
              case(FIXED):
-             case(FLOAT):
+             case(D_FLOAT):
                  { /* Verify scale not already seen */
                  if ((d_ptr->scale) != 0)
                     {
@@ -7810,7 +7810,7 @@ PARSER
                  break;
                }
              case(FIXED):
-             case(FLOAT):
+             case(D_FLOAT):
                  { /* Verify scale not already seen */
                  if ((sym_ptr->scale) != 0)
                     {

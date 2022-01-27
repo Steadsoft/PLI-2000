@@ -301,7 +301,7 @@ static void
    if ((s_ptr->type == BINARY) ||
        (s_ptr->type == DECIMAL) ||
        (s_ptr->type == PICTURE))
-      if (s_ptr->scale != FLOAT)
+      if (s_ptr->scale != D_FLOAT)
          s_ptr->scale = FIXED;
 
    /******************************************************************/
@@ -439,7 +439,7 @@ static long
 
       if (s_ptr->type == DECIMAL)        /* decimal */
          {
-         if ((s_ptr->prec_1 > 15)  && (s_ptr->scale == FLOAT))
+         if ((s_ptr->prec_1 > 15)  && (s_ptr->scale == D_FLOAT))
             report(88,s_ptr->spelling,__LINE__);
          else
          if ((s_ptr->prec_1 > 18) && (s_ptr->scale == FIXED))

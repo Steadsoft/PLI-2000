@@ -65,6 +65,7 @@
 #include <dos.h>
 /* #include <dir.h> */
 #include "options.h"
+#include <sysinfoapi.h>
 
 /***************************************************************************/
 /*       I N T E R N A L L Y    D E F I N E D    P R O T O T Y P E S       */
@@ -97,8 +98,12 @@ FILE  *LISTING = NULL;
 static char   buffer[130];         /* was 80 */
 char   locn[8];
 char   length[8];
-/*struct dostime_t     st;
-struct dosdate_t     sd;  */
+SYSTEMTIME      st;
+DWORD dwVersion = 0;
+DWORD dwMajorVersion = 0;
+DWORD dwMinorVersion = 0;
+DWORD dwBuild = 0;
+/*struct dosdate_t     sd;  */
  
 /***************************************************************************/
 /*               This function will open the listing file.                 */
@@ -118,8 +123,13 @@ int open_listing (char name[])
 
      /* strcpy (path,searchpath(name)); */
 
-     /*getdate (&sd);
-     gettime (&st); */
+     GetSystemTime(&st);
+     dwVersion = GetVersion();
+     dwMajorVersion = (DWORD)(LOBYTE(LOWORD(dwVersion)));
+     dwMinorVersion = (DWORD)(HIBYTE(LOWORD(dwVersion)));
+     if (dwVersion < 0x80000000)
+         dwBuild = (DWORD)(HIWORD(dwVersion));
+     /*gettime(&st); */
 
      pos = strcspn (name,".");
 
@@ -138,21 +148,21 @@ int open_listing (char name[])
      /* Print some useful data for the programmers sake          */
      /************************************************************/
 
-	 fprintf(LISTING,"Win32 (NT/95) dates, times, version-no's etc not yet ported.\n");
-	 fprintf(LISTING,"Please update LIST.C to remove this msg etc.\n");
-	 /*
+	 /*fprintf(LISTING, "Win32 (NT/95) dates, times, version-no's etc not yet ported.\n");
+	 fprintf(LISTING,"Please update LIST.C to remove this msg etc.\n");*/
+	 
      fprintf (LISTING,"Copyright (c) Hugh Gleaves 2006\n");
      check_print(1);
-     fprintf (LISTING,"SOURCE FILE: %s\n",path);
-     check_print(1);
-     fprintf (LISTING,"COMPILED ON: %02d-%02d-%02d ",sd.day,sd.month,(sd.year-1900));  
-     fprintf (LISTING,"AT: %02d:%02d:%02d\n",st.hour,st.minute,st.second);
+     /*fprintf(LISTING, "SOURCE FILE: %s\n", path);
+     check_print(1);*/
+     fprintf (LISTING,"COMPILED ON: %02d-%02d-%02d ",st.wYear,st.wMonth,st.wDay);  
+     fprintf (LISTING,"AT: %02d:%02d:%02d\n",st.wHour,st.wMinute,st.wSecond);
      check_print(1);
      fprintf (LISTING,"COMPILED BY: PL/I Release %d.%d alpha\n",RMAJ,RMIN);
      check_print(1);
-     fprintf (LISTING,"OS RELEASE: %d.%d\n",_osmajor,_osminor);
+     fprintf (LISTING,"OS RELEASE: %d.%d\n",dwMajorVersion,dwMinorVersion);
      check_print(1);
-	 */
+	 
      /*********************************************************************/
      /*          Print a summary of any selected compiler options.        */
      /*********************************************************************/
@@ -588,7 +598,7 @@ static void print_symbol (Symbol_ptr v_ptr)
             posn += 6;  
             break;
             }
-        case(FLOAT):
+        case(D_FLOAT):
             {
             assign (buffer,posn,"float ");
             posn += 6;

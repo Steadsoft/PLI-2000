@@ -367,7 +367,7 @@ static void dump_operator (Any_ptr g_ptr)
 
      if (ptr->scale == FIXED)
         printf("Scale FIXED\n");
-     if (ptr->scale == FLOAT)
+     if (ptr->scale == D_FLOAT)
         printf("Scale FLOAT\n");
 
      printf ("Precision:            %d,%d\n",ptr->prec_1,ptr->prec_2);
