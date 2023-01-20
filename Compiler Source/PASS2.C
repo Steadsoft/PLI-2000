@@ -3667,8 +3667,8 @@ chur
       r_scale = o_ptr->scale;
       }
 
-   if ((l_scale == FLOAT) || (r_scale == FLOAT))
-      return(FLOAT);
+   if ((l_scale == D_FLOAT) || (r_scale == D_FLOAT))
+      return(D_FLOAT);
    else
       return(FIXED); 
    
@@ -4109,9 +4109,9 @@ Any_ptr
 
    if ((s_base == DECIMAL) && (s_scale == FIXED))
       {
-      if ((t_base == DECIMAL) && (t_scale == FLOAT))
+      if ((t_base == DECIMAL) && (t_scale == D_FLOAT))
          return(cv_float_dec(op));
-      if ((t_base == BINARY) &&  (t_scale == FLOAT))
+      if ((t_base == BINARY) &&  (t_scale == D_FLOAT))
          return(cv_float_bin(op));
       if ((t_base == BINARY) &&  (t_scale == FIXED))
          return(cv_fixed_bin(op));
@@ -4119,27 +4119,27 @@ Any_ptr
 
    if ((s_base == BINARY) && (s_scale == FIXED))
       {
-      if ((t_base == DECIMAL) && (t_scale == FLOAT))
+      if ((t_base == DECIMAL) && (t_scale == D_FLOAT))
          return(cv_float_dec(op));
-      if ((t_base == BINARY) &&  (t_scale == FLOAT))
+      if ((t_base == BINARY) &&  (t_scale == D_FLOAT))
          return(cv_float_bin(op));
       if ((t_base == DECIMAL) && (t_scale == FIXED))
          return(cv_fixed_dec(op));
       }
 
-   if ((s_base == DECIMAL) && (s_scale == FLOAT))
+   if ((s_base == DECIMAL) && (s_scale == D_FLOAT))
       {
       if ((t_base == DECIMAL) && (t_scale == FIXED))
          return(cv_fixed_dec(op));
-      if ((t_base == BINARY) &&  (t_scale == FLOAT))
+      if ((t_base == BINARY) &&  (t_scale == D_FLOAT))
          return(cv_float_bin(op));
       if ((t_base == BINARY) &&  (t_scale == FIXED))
          return(cv_fixed_bin(op));
       }
 
-   if ((s_base == BINARY) && (s_scale == FLOAT))
+   if ((s_base == BINARY) && (s_scale == D_FLOAT))
       {
-      if ((t_base == DECIMAL) && (t_scale == FLOAT))
+      if ((t_base == DECIMAL) && (t_scale == D_FLOAT))
          return(cv_float_dec(op));
       if ((t_base == BINARY) &&  (t_scale == FIXED))
          return(cv_fixed_bin(op));

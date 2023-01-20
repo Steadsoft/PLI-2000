@@ -58,17 +58,19 @@
 /* Statistics for each phase are maintained and printed in here too.        */
 /****************************************************************************/
 
+#include "windows.h"
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
-#include <dos.h>
+#ifndef X64
+   #include <dos.h>
+   #include "intaface.h"
+#endif
 #include <time.h>
 #include <stdio.h>
 #include "ctype.h"
 #include "platform.h"
 #include "token.h"
-#include "intaface.h"
-#include "windows.h"
 
 # define SOURCE_HELP  "Enter the name of the source file, the 'pl1' suffix is optional."
 # define LIST_HELP    "Select this option, if you require a listing file."
@@ -191,8 +193,8 @@ char  except_msg[32];
 /***************************************************************************/
 /*                  Win32 Exception handling support.                      */
 /***************************************************************************/
-
 long filterer (LPEXCEPTION_POINTERS);
+
 
 
 /***************************************************************************/
@@ -206,7 +208,6 @@ void main (long argcount,char * argvector[])
      short              status;
      char               obj_file [128] = "";
    
-
 __try {
 
     listing_reqd = 0;
@@ -223,8 +224,8 @@ __try {
     /***********************************************************************/
      
     strcpy(program_path,_pgmptr);   
-
-    status = AquireCmdLineArgs  
+#ifndef X64
+    status = AquireCmdLineArgs
                       ("PL/I 32 Optimizing Compiler",argcount,argvector,
                        "posn(source_file),length(64),string,required",SOURCE_HELP,file,
                        "switch(list),color(9)",LIST_HELP,&listing_reqd,
@@ -258,6 +259,40 @@ __try {
 	     printf ("An error ocurred processing the command line arguments.\n");
 	     exit(0);
 	     }
+#else
+     /*Replace lost source library with normal parsing of parameters */
+    /*First argument must be the filename, with or without extension */
+    /*Giuliano Vannini 2022-02-04*/
+    if (argcount < 2)
+    {
+        printf("Specificare il nome del file\n");
+        exit(0);
+    }
+    for (int i = 1; i < argcount; i++)
+    {
+        if (i == 1) strcpy(file, argvector[i]);
+        if(strcmp("+list"       , argvector[i]) == 0) listing_reqd  =1;
+        if(strcmp("+mapcase"    , argvector[i]) == 0) mapcase_reqd  = 1;
+        if(strcmp("+optimize"   , argvector[i]) == 0) optimize_reqd = 1;
+        if(strcmp("+ndp"        , argvector[i]) == 0) ndp_reqd      = 1;
+        if(strcmp("+beep"       , argvector[i]) == 0) beep_reqd     = 1;
+        if(strcmp("+code"       , argvector[i]) == 0) code_reqd     = 1;
+        if(strcmp("+semantic"   , argvector[i]) == 0) semantic_reqd = 1;
+        if(strcmp("+nesting"    , argvector[i]) == 0) nesting_reqd  = 1;
+        if(strcmp("+error"      , argvector[i]) == 0) error_reqd    = 1;
+        if(strcmp("+bounds"     , argvector[i]) == 0) bounds_reqd   = 1;
+        if(strcmp("+table"      , argvector[i]) == 0) table_reqd    = 1;
+        if(strcmp("+system"     , argvector[i]) == 0) system_reqd   = 1;
+        if(strcmp("+unrefs"     , argvector[i]) == 0) unrefs_reqd   = 1;
+        if(strcmp("+dump_nodes" , argvector[i]) == 0) dump_reqd     = 1;
+        if(strcmp("+trace_heap" , argvector[i]) == 0) trace_heap    = 1;
+        if(strcmp("+trace_pass2", argvector[i]) == 0) trace_pass2   = 1;
+        if(strcmp("+trace_code" , argvector[i]) == 0) trace_code    = 1;
+        if(strcmp("+debug"      , argvector[i]) == 0) debug_reqd    = 1;
+        if(strcmp("+halt"       , argvector[i]) == 0) halt_reqd     = 1;
+    }
+
+#endif
 
      if (nesting_reqd || system_reqd)    /* nesting implies listing */
         listing_reqd = 1;
@@ -494,7 +529,6 @@ __except (filterer(GetExceptionInformation() ))
    	report(181,except_msg,(short)_LINE_);
     exit(0);
 	}
-
 
 }
 

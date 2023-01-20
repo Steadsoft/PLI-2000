@@ -42,7 +42,7 @@
 # define BASED            12            /* based                           */
 # define STATIC           13            /* static                          */
 # define FIXED            14            /* fixed                           */
-# define FLOAT            15            /* float                           */
+# define D_FLOAT          15            /* float                           */
 # define LPAR             16            /* (                               */
 # define RPAR             17            /* )                               */
 # define MINUS            18            /* -                               */
