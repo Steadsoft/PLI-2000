@@ -1417,7 +1417,7 @@ unsigned  scale:  2;   /* bits 6 7   */
 typedef struct {
         long   imm; /* used for JMP                   */
         chur   len; /* analogous to WORD PTR/BYTE PTR */
-		chur   scale;
+	chur   scale;
         Reg    reg;
         long   dis;
         Reg    idx;
